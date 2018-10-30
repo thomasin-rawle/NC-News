@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const BASE_URL = 'https://nc-news-tommy.herokuapp.com/api';
 
-export const getAllArticles = () => {
-    const url = `${BASE_URL}/articles`
+export const getArticles = (topic) => {
+    const url = topic ? `${BASE_URL}/topics/${topic}/articles` : `${BASE_URL}/articles`
     return (
         axios.get(url)
         .then(({data}) => data.articles)
@@ -14,13 +14,6 @@ export const getTopics = () => {
     return (
         axios.get(url)
         .then(({data}) => data.allTopics)
-    )
-}
-export const getArticlesByTopic = (topicSlug) => {
-    const url = `${BASE_URL}/topics/${topicSlug}/articles`
-    return (
-        axios.get(url)
-        .then(({data}) => data.articlesInTopic)
     )
 }
 export const getArticle = (id) => {

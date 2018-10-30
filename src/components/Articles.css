@@ -1,3 +1,7 @@
+
+h1.topic-title {
+    text-transform: capitalize;
+}
 .article {
     width:60%;
     background-color: #ececec;

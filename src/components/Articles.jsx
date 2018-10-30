@@ -1,12 +1,18 @@
-import React from 'react';
-import './Articles.css';
+import React, { Component } from 'react';
 import { Link } from '@reach/router';
+import * as api from '../api';
+import './Articles.css';
 
-const Articles = ({articles}) => {
-   
-    return (
-        <div>
-            {articles.map(article => {
+class Articles extends Component {
+    state = {
+        articles: []
+    }
+    render() {
+        const selectedTopic = this.props.topic_slug;
+        return (
+            <div>
+                <h1 className="topic-title">{(selectedTopic && `${selectedTopic} Articles`) || `All Articles`}</h1>
+                {this.state.articles.map(article => {
                   return (
                     <Link key={article._id} to={`/article/${article._id}`}>
                     <article className='article' >
@@ -21,8 +27,28 @@ const Articles = ({articles}) => {
                     </Link>
                   )
                 })}
-        </div>
-    );
-};
+            </div>
+        );
+    }
+    componentDidMount(){
+        console.log('...Articles mounted')
+        this.fetchArticles()
+    }
+    componentDidUpdate(prevProps){
+        console.log('...Articles updated')
+        if (prevProps.topic_slug !== this.props.topic_slug) {
+            this.fetchArticles()
+        }
+    }
+    fetchArticles = () => {
+        const selectedTopic = this.props.topic_slug;
+        api.getArticles(selectedTopic)
+        .then(newArticles => {
+          this.setState({
+            articles: newArticles
+          })
+        })
+    }
+}
 
 export default Articles;
