@@ -1,7 +1,7 @@
 
 .nav {
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 10px 0;
     background-color: #202829;
     text-align: right;
     background-image: url('/nc_logo.png');
@@ -9,16 +9,19 @@
     background-size: 100px;
     background-position: 50px center;
   }
-  
   .nav ul {
-    padding-right:50px;
+    padding-right:100px;
+  }
+  .nav ul button {
+    font: unset;
+    cursor: pointer;
   }
   .nav ul a, .nav ul button {
     margin: 0 20px;
     text-decoration: none;
     color: white;
     transition: 0.2s;
-    font-size:16px;
+    font-size: 16px;
     font-weight:100;
     vertical-align: top;
   }
@@ -40,7 +43,8 @@
     outline: none;
   }
   
-  .nav .dropdown-content {
+  .nav ul .dropdown-content {
+    
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -49,7 +53,7 @@
     z-index: 1;
     border-radius: 8px;
   }
-  .dropdown-content a {
+  .nav ul .dropdown-content a {
     float: none;
     text-decoration: none;
     display: block;
@@ -58,10 +62,10 @@
     padding:5px;
     color: #474747;
   }
-  .dropdown-content a:hover {
+  .nav ul .dropdown-content a:hover {
     background-color:#BA1F31;
     color:white;
   }
-  .dropdown:hover .dropdown-content {
+  .nav ul .dropdown:hover .dropdown-content {
     display: block;
   }

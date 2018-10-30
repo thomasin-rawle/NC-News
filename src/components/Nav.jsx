@@ -10,21 +10,23 @@ class Nav extends Component {
   render() {
     return (
       <div className="nav">
-        <Link to="/">Home</Link>
-        <div className="dropdown">
-          <button className="dropbtn">
-            Topics <i className="fa fa-caret-down" />
-          </button>
-          <div className="dropdown-content">
-            {this.state.topics.map(topic => {
-              return (
-                <Link key={topic._id} to={`/topics/${topic.slug}`}>
-                  {topic.title}
-                </Link>
-              );
-            })}
+        <ul>
+          <Link to="/">Home</Link>
+          <div className="dropdown">
+            <button className="dropbtn">
+              Topics <i className="fa fa-caret-down" />
+            </button>
+            <div className="dropdown-content">
+              {this.state.topics.map(topic => {
+                return (
+                  <Link key={topic._id} to={`/topics/${topic.slug}`}>
+                    {topic.title}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-        </div>
+          </ul>
       </div>
     );
   }
