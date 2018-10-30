@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Topics from './components/Topics';
 
 class App extends Component {
+
   render() {
     return (
      <div>
