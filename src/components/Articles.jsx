@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import * as api from '../api';
 import './Articles.css';
+import PostArticle from './PostArticle';
 
 class Articles extends Component {
     state = {
@@ -14,6 +15,7 @@ class Articles extends Component {
         return (
             <div>
                 <h1 className="topic-title">{(selectedTopic && `${selectedTopic} Articles`) || `All Articles`}</h1>
+                <PostArticle topic={this.props.topic_slug} postArticle={this.postArticle}/>
                 {this.state.articles.map(article => {
                   return (
                     <Link key={article._id} to={`/article/${article._id}`}>
@@ -52,6 +54,17 @@ class Articles extends Component {
           })
         })
     }
+    postArticle = (article, topic) => {
+        const newArticle = {...article, created_by: this.props.user._id}
+        const selectedTopic = topic ? topic : this.props.topic_slug;
+        api.postArticle(newArticle, selectedTopic)
+        .then(postedArticle => {
+            this.setState({
+                articles: [postedArticle, ...this.state.articles]
+            })
+        })
+    }
+    
 }
 
 export default Articles;
