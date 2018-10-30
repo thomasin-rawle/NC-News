@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as api from '../api'
-import Articles from './Article'
 
 class Article extends Component {
     state = {
@@ -9,10 +8,14 @@ class Article extends Component {
     }
     render() {
         if (this.state.loading) return <h1>...loading</h1>
+        console.log(this.state.article)
         return (
             <div>
+                
                 <h1>Article</h1>
-                {/* <Articles articles={this.state.article} /> */}
+                <p>{this.state.article.title}</p>
+                <p>{this.state.article.body}</p>
+                
 
             </div>
         );
