@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import Articles from './Articles';
 import * as api from '../api';
+import './Topics.css';
 
 class Topics extends Component {
     state = {
         articles: []
     }
     render() {
-        console.log(this.props)
         return (
             <div>
-                <h1>Topics</h1>
+                <h1 className="topic-title">{this.props.topic_slug} Articles</h1>
                 <Articles articles={this.state.articles} />
             </div>
         );
@@ -29,7 +29,6 @@ class Topics extends Component {
         const selectedTopic = this.props.topic_slug;
         api.getArticlesByTopic(selectedTopic)
         .then(newArticles => {
-            console.log(newArticles)
           this.setState({
             articles: newArticles
           })
