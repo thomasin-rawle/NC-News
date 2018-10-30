@@ -28,7 +28,6 @@ class Home extends Component {
         }
     }
     fetchAllArticles = () => {
-        const selectedTopic = this.props.topic_slug;
         api.getAllArticles()
         .then(newArticles => {
           this.setState({
