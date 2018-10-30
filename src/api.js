@@ -30,3 +30,10 @@ export const getUser = (username) => {
         .then(({data}) => data.userProfile)
     )
 }
+export const postArticle = (newArticle, topic) => {
+    const url = `${BASE_URL}/topics/${topic}/articles`
+    return(
+        axios.post(url, newArticle)
+        .then(({data}) => data.article)
+    )
+}

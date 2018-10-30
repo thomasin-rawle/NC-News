@@ -19,8 +19,8 @@ class App extends Component {
       <Nav />
       <Login user={this.state.user} fetchUser={this.fetchUser}>
         <Router>
-          <Articles path='/' />
-          <Articles path='/topics/:topic_slug'/>
+          <Articles path='/' user={this.state.user}/>
+          <Articles path='/topics/:topic_slug' user={this.state.user}/>
           <Article path='/article/:id'/>
         </Router>
        </Login>
