@@ -5,10 +5,12 @@ import './Articles.css';
 
 class Articles extends Component {
     state = {
-        articles: []
+        articles: [],
+        loading: true
     }
     render() {
         const selectedTopic = this.props.topic_slug;
+        if (this.state.loading) return <h1>...loading</h1>
         return (
             <div>
                 <h1 className="topic-title">{(selectedTopic && `${selectedTopic} Articles`) || `All Articles`}</h1>
@@ -45,7 +47,8 @@ class Articles extends Component {
         api.getArticles(selectedTopic)
         .then(newArticles => {
           this.setState({
-            articles: newArticles
+            articles: newArticles,
+            loading: false
           })
         })
     }
