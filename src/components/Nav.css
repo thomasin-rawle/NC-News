@@ -1,0 +1,67 @@
+
+.nav {
+    margin: 0 auto;
+    padding: 20px 0;
+    background-color: #202829;
+    text-align: right;
+    background-image: url('/nc_logo.png');
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: 50px center;
+  }
+  
+  .nav ul {
+    padding-right:50px;
+  }
+  .nav ul a, .nav ul button {
+    margin: 0 20px;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+    font-size:16px;
+    font-weight:100;
+    vertical-align: top;
+  }
+  .nav ul a:hover, .nav ul a:active, .nav ul button:hover{
+    color:#BA1F31;
+    transition: 0.2s
+  }
+  
+  /* -------- NAV STYLING --------- */
+  
+  .dropdown {
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .dropdown .dropbtn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  .nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+  }
+  .dropdown-content a {
+    float: none;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    margin: 5px 0;
+    padding:5px;
+    color: #474747;
+  }
+  .dropdown-content a:hover {
+    background-color:#BA1F31;
+    color:white;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
