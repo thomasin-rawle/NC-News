@@ -23,3 +23,10 @@ export const getArticle = (id) => {
         .then(({data}) => data.article)
     )
 }
+export const getUser = (username) => {
+    const url = `${BASE_URL}/users/${username}`
+    return (
+        axios.get(url)
+        .then(({data}) => data.userProfile)
+    )
+}
