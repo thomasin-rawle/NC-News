@@ -23,3 +23,10 @@ export const getArticlesByTopic = (topicSlug) => {
         .then(({data}) => data.articlesInTopic)
     )
 }
+export const getArticle = (id) => {
+    const url = `${BASE_URL}/articles/${id}`
+    return (
+        axios.get(url)
+        .then(({data}) => data.article)
+    )
+}
