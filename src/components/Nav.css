@@ -8,6 +8,8 @@
     background-repeat: no-repeat;
     background-size: 100px;
     background-position: 50px center;
+    margin-left:-15px;
+    margin-right:-15px;
   }
   .nav ul {
     padding-right: 20px;

@@ -12,7 +12,7 @@ class PostArticle extends Component {
         return (
             <div className="post-article-box__container">
             <div className="post-article-box">
-            <h3>Write an article <i class="fa fa-pencil" aria-hidden="true"></i></h3>
+            <h3>Write an article <i className="fa fa-pencil" aria-hidden="true"></i></h3>
                 <form onSubmit={this.handleSubmit}>
                     <ProfilePic user={this.props.user}/>
                     <input onChange={this.handleChange} value={this.state.title} id='title' type="text" placeholder='Post Title' name="title"/>
@@ -61,5 +61,3 @@ class PostArticle extends Component {
 }
 
 export default PostArticle;
-
-// this.state.topic should equal this.props.topic

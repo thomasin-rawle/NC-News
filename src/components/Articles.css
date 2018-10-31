@@ -3,19 +3,52 @@ h1.topic-title {
     text-transform: capitalize;
 }
 .article {
-    width:60%;
+    width:600px;
     background-color: #ececec;
     margin: 10px auto;
-    padding: 10px 20px;
     border-radius: 10px;
+    overflow: hidden;
+}
+.article .main-content {
+    padding: 0 20px 10px;
 }
 .article .profile-pic {
-    width: 40px;
-    height:40px;
+    width: 35px;
+    height:35px;
+    border-radius:100%;
+    margin-left: 20px;
+    float:unset;
+    margin-right:10px;
 }
 .articles a {
     text-decoration: none;
     color:inherit;
+}
+.article .body {
+    max-height: 100px;
+    overflow: hidden;
+}
+.article-info {
+    background-color: #5eb1bf;
+    display:flex;
+    align-items: center;
+    padding:5px 0;
+    color:white;
+    position: relative;
+}
+.article-info > *{
+    display:inline-block;
+    margin:0;
+}
+.article-info > p{
+    font-size:0.85em;
+    padding:0 5px;
+}
+.article-info .topic {
+    position: absolute;
+    font-weight:bold;
+    right:20px;
+    font-size: 1em;
 }
 .comments:before {
     content:'\f086';
@@ -30,5 +63,15 @@ h1.topic-title {
     color:#ff5d5d
 }
 .art-interactions {
+    margin-top:10px;
+}
+.art-interactions > * {
     padding-right:20px;
+}
+
+/* Media Queries */
+@media (max-width:767px) {
+    .article {
+        width:100%;
+    }
 }

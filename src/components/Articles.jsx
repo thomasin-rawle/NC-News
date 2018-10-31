@@ -3,67 +3,91 @@ import { Link } from '@reach/router';
 import * as api from '../api';
 import './Articles.css';
 import PostArticle from './PostArticle';
+import formatDate from './utils/formatDate';
+import ProfilePic from './ProfilePic';
 
 class Articles extends Component {
-    state = {
-        articles: [],
-        loading: true,
+  state = {
+    articles: [],
+    loading: true
+  };
+  render() {
+    const selectedTopic = this.props.topic_slug;
+    if (this.state.loading) return <h1>...loading</h1>;
+    return (
+      <div className="articles">
+        <h1 className="topic-title">
+          {(selectedTopic && `${selectedTopic} Articles`) || `All Articles`}
+        </h1>
+        <PostArticle
+          topic={this.props.topic_slug}
+          postArticle={this.postArticle}
+          user={this.props.user}
+        />
+        {this.state.articles.map(article => {
+          return (
+            <article className="article">
+              <div className="article-info">
+                <ProfilePic user={article.created_by} />
+                <p>Posted by {article.created_by.name}</p>
+                <p>|</p>
+                <p>{formatDate(article.created_at)}</p>
+                <p className="topic">
+                  nc/
+                  {article.belongs_to}
+                </p>
+              </div>
+              
+                <div className="main-content">
+                  <Link key={article._id} to={`/article/${article._id}`}>
+                  <h2>{article.title}</h2>
+                  <div className="body">{article.body}</div>
+                  </Link>
+                  <div className="art-interactions">
+                  <Link key={article._id} to={`/article/${article._id}`}>
+                    <span className="comments">
+                      {article.comment_count}{' '}
+                      {(article.comment_count === 1 && `Comment`) || `Comments`}
+                    </span>
+                  </Link>
+                    <span className="likes">{article.votes} Likes</span>
+                  </div>
+                </div>
+              
+            </article>
+          );
+        })}
+      </div>
+    );
+  }
+  componentDidMount() {
+    console.log('...Articles mounted');
+    this.fetchArticles();
+  }
+  componentDidUpdate(prevProps) {
+    console.log('...Articles updated');
+    if (prevProps.topic_slug !== this.props.topic_slug) {
+      this.fetchArticles();
     }
-    render() {
-        const selectedTopic = this.props.topic_slug;
-        if (this.state.loading) return <h1>...loading</h1>
-        return (
-            <div className="articles">
-                <h1 className="topic-title">{(selectedTopic && `${selectedTopic} Articles`) || `All Articles`}</h1>
-                <PostArticle topic={this.props.topic_slug} postArticle={this.postArticle} user={this.props.user}/>
-                {this.state.articles.map(article => {
-                  return (
-                    <Link key={article._id} to={`/article/${article._id}`}>
-                    <article className='article' >
-                            <p>Topic: {article.belongs_to}</p>
-                            <p>Written by: {article.created_by.name}</p>
-                            <p>{article.created_at}</p>
-                            <h2>{article.title}</h2>
-                            <p>{article.body}</p>
-                            <span className="art-interactions comments">{article.comment_count} {(article.comment_count === 1 && `Comment`) || `Comments`}</span>
-                            <span className="art-interactions likes" >{article.votes} Likes</span>
-                        </article>
-                    </Link>
-                  )
-                })}
-            </div>
-        );
-    }
-    componentDidMount(){
-        console.log('...Articles mounted')
-        this.fetchArticles()
-    }
-    componentDidUpdate(prevProps){
-        console.log('...Articles updated')
-        if (prevProps.topic_slug !== this.props.topic_slug) {
-            this.fetchArticles()
-        }
-    }
-    fetchArticles = () => {
-        const selectedTopic = this.props.topic_slug;
-        api.getArticles(selectedTopic)
-        .then(newArticles => {
-          this.setState({
-            articles: newArticles,
-            loading: false
-          })
-        })
-    }
-    postArticle = (article, topic) => {
-        const newArticle = {...article, created_by: this.props.user._id}
-        const selectedTopic = topic ? topic : this.props.topic_slug;
-        api.postArticle(newArticle, selectedTopic)
-        .then(postedArticle => {
-        this.setState({
-            articles: [postedArticle, ...this.state.articles]
-        })
-        }) 
-    }
+  }
+  fetchArticles = () => {
+    const selectedTopic = this.props.topic_slug;
+    api.getArticles(selectedTopic).then(newArticles => {
+      this.setState({
+        articles: newArticles,
+        loading: false
+      });
+    });
+  };
+  postArticle = (article, topic) => {
+    const newArticle = { ...article, created_by: this.props.user._id };
+    const selectedTopic = topic ? topic : this.props.topic_slug;
+    api.postArticle(newArticle, selectedTopic).then(postedArticle => {
+      this.setState({
+        articles: [postedArticle, ...this.state.articles]
+      });
+    });
+  };
 }
 
 export default Articles;
