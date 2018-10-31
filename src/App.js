@@ -11,7 +11,7 @@ class App extends Component {
 
  state= {
    user: {
-      username: 'tickle122'
+      
    }
  }
 

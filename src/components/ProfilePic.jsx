@@ -3,18 +3,19 @@ import './ProfilePic.css'
 
 class ProfilePic extends Component {
     state = {
-        image_url : this.props.user.avatar_url
+        avatar_url : this.props.user.avatar_url
     }
     render() {
+        const {avatar_url} = this.state;
         return (
             <div className="profile-pic">
-                 <img src={this.state.image_url || `/default.jpg`} onError={this.makeDefaultPhoto} alt="avatar"/>
+                 <img src={avatar_url} onError={this.makeDefaultPhoto} alt="avatar"/>
             </div>
         );
     }
     makeDefaultPhoto = () => {
         this.setState({
-            image_url: 'default.jpg'
+            avatar_url: '/default.jpg'
         })
     }
 }

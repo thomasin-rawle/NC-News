@@ -26,7 +26,7 @@ class Articles extends Component {
         />
         {this.state.articles.map(article => {
           return (
-            <article className="article">
+            <article key={article._id} className="article">
               <div className="article-info">
                 <ProfilePic user={article.created_by} />
                 <p>Posted by {article.created_by.name}</p>
@@ -39,7 +39,7 @@ class Articles extends Component {
               </div>
               
                 <div className="main-content">
-                  <Link key={article._id} to={`/article/${article._id}`}>
+                  <Link to={`/article/${article._id}`}>
                   <h2>{article.title}</h2>
                   <div className="body">{article.body}</div>
                   </Link>

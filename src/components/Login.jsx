@@ -6,7 +6,6 @@ class Login extends Component {
         username : ''
     }
     render() {
-        console.log(this.props.children)
         if (this.props.user.username) return (this.props.children)
         return (
             <div className="login">
