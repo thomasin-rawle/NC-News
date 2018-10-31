@@ -7,7 +7,7 @@ import PostArticle from './PostArticle';
 class Articles extends Component {
     state = {
         articles: [],
-        loading: true
+        loading: true,
     }
     render() {
         const selectedTopic = this.props.topic_slug;
@@ -15,18 +15,18 @@ class Articles extends Component {
         return (
             <div>
                 <h1 className="topic-title">{(selectedTopic && `${selectedTopic} Articles`) || `All Articles`}</h1>
-                <PostArticle topic={this.props.topic_slug} postArticle={this.postArticle}/>
+                <PostArticle topic={this.props.topic_slug} postArticle={this.postArticle} user={this.props.user}/>
                 {this.state.articles.map(article => {
                   return (
                     <Link key={article._id} to={`/article/${article._id}`}>
                     <article className='article' >
-                            <p>{article.belongs_to}</p>
-                            <p>{article.created_by.name}</p>
+                            <p>Topic: {article.belongs_to}</p>
+                            <p>Written by: {article.created_by.name}</p>
                             <p>{article.created_at}</p>
                             <h2>{article.title}</h2>
                             <p>{article.body}</p>
-                            <p>{article.comment_count}</p>
-                            <p>{article.votes}</p>
+                            <p>Comments: {article.comment_count}</p>
+                            <p>Votes: {article.votes}</p>
                         </article>
                     </Link>
                   )
@@ -59,12 +59,11 @@ class Articles extends Component {
         const selectedTopic = topic ? topic : this.props.topic_slug;
         api.postArticle(newArticle, selectedTopic)
         .then(postedArticle => {
-            this.setState({
-                articles: [postedArticle, ...this.state.articles]
-            })
+        this.setState({
+            articles: [postedArticle, ...this.state.articles]
         })
+        }) 
     }
-    
 }
 
 export default Articles;
