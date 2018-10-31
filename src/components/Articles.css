@@ -1,6 +1,7 @@
 
 h1.topic-title {
     text-transform: capitalize;
+    text-align: center;
 }
 .article {
     width:600px;

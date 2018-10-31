@@ -18,7 +18,7 @@ class Articles extends Component {
     return (
       <div className="articles">
         <h1 className="topic-title">
-          {(selectedTopic && `${selectedTopic} Articles`) || `All Articles`}
+          {(selectedTopic && `${selectedTopic} Articles`)}
         </h1>
         <PostArticle
           topic={this.props.topic_slug}
