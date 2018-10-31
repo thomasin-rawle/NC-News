@@ -10,7 +10,7 @@ h1.topic-title {
     overflow: hidden;
 }
 .article .main-content {
-    padding: 0 20px 10px;
+    padding: 0 20px;
 }
 .article .profile-pic {
     width: 35px;
@@ -53,17 +53,43 @@ h1.topic-title {
 .comments:before {
     content:'\f086';
     font-family: fontawesome;
-    padding-right:5px;;
-    color:#474747
+    padding-right:5px;
+    color:#474747;
 }
-.likes:before {
-    content:'\f08a';
-    font-family: fontawesome;
-    padding-right:5px;;
-    color:#ff5d5d
+
+.likeDiv{
+    display:inline-flex;
+    align-items: center;
 }
+
+.heart {
+    display:inline-block;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-image:url( '/like_animation.png');
+    background-position: left;
+    background-repeat:no-repeat;
+    background-size:2900%;
+    margin-right: -10px;
+    margin-bottom: -1px;
+  }
+  .heart:hover {
+    background-position:right;
+  }
+  .is_animating {
+    animation: heart-burst .8s steps(28) ;
+    background-position:right;
+  }
+  @keyframes heart-burst {
+    from {background-position:left;}
+    to { background-position:right;}
+  }
+
 .art-interactions {
     margin-top:10px;
+    display: flex;
+    align-items: center;
 }
 .art-interactions > * {
     padding-right:20px;

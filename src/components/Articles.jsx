@@ -5,6 +5,7 @@ import './Articles.css';
 import PostArticle from './PostArticle';
 import formatDate from './utils/formatDate';
 import ProfilePic from './ProfilePic';
+import Like from './Like';
 
 class Articles extends Component {
   state = {
@@ -50,7 +51,8 @@ class Articles extends Component {
                       {(article.comment_count === 1 && `Comment`) || `Comments`}
                     </span>
                   </Link>
-                    <span className="likes">{article.votes} Likes</span>
+                  <Like likeCount={article.votes}/>
+                    
                   </div>
                 </div>
               
