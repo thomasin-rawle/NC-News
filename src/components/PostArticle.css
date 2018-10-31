@@ -1,0 +1,74 @@
+.post-article-box__container {
+    text-align: center;
+}
+.post-article-box{
+   display:inline-block;
+    padding:15px 20px;
+    background-color: #ececec;
+    border-radius: 10px
+}
+.post-article-box input, .post-article-box textarea {
+    display: block;
+    margin-left: 90px;
+    width:300px;
+    padding: 6px 10px;
+    border-radius:5px;
+    border: 1px #ccc solid;
+    font-size:12px;
+    color:#474747;
+    margin-bottom: 10px;
+}
+.post-article-box textarea {
+    min-height: 50px;
+}
+input::placeholder, textarea::placeholder {
+    color:#ccc;
+}
+input:focus::placeholder, textarea:focus::placeholder {
+    color: transparent;
+}
+.form-components {
+    float:right;
+}
+.post-article-box h3 {
+    margin-top:0;
+}
+.post-article-box .select-container {
+    background-color: white;
+    border-radius: 5px;
+    display: inline-block;
+    border-left: 50px #5eb1bf solid;
+    position: relative;
+    vertical-align: middle
+}
+.post-article-box .select-container:before {
+    content:'Topic';
+    color:white;
+    position: absolute;
+    left:-42px;
+    top:6px;
+    font-size:14px;
+}
+.post-article-box select{
+   background-color: transparent;
+   height:30px;
+   border: none;
+   border-left:50px;
+   padding: 0 10px;
+   text-transform: capitalize;
+}
+.post-article-box select:disabled{
+    -webkit-appearance: none;
+}
+.post-article-box button {
+    background-color: #5eb1bf;
+    color:white;
+    border:none;
+    padding: 7px 15px;
+    border-radius:8px;
+    font:unset;
+    font-size:14px;
+    margin-left:10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
