@@ -9,3 +9,26 @@ h1.topic-title {
     padding: 10px 20px;
     border-radius: 10px;
 }
+.article .profile-pic {
+    width: 40px;
+    height:40px;
+}
+.articles a {
+    text-decoration: none;
+    color:inherit;
+}
+.comments:before {
+    content:'\f086';
+    font-family: fontawesome;
+    padding-right:5px;;
+    color:#474747
+}
+.likes:before {
+    content:'\f08a';
+    font-family: fontawesome;
+    padding-right:5px;;
+    color:#ff5d5d
+}
+.art-interactions {
+    padding-right:20px;
+}

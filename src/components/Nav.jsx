@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import './Nav.css';
 import * as api from '../api';
+import ProfilePic from './ProfilePic';
 
 class Nav extends Component {
   state = {
     topics: []
   };
   render() {
+   
     return (
       <div className="nav">
         <ul>
@@ -27,6 +29,10 @@ class Nav extends Component {
             </div>
           </div>
           </ul>
+          <div className="logged-in">
+            <ProfilePic user={this.props.user}/>
+            {this.props.user.username}
+          </div>
       </div>
     );
   }

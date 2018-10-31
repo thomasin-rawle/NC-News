@@ -13,7 +13,7 @@ class Articles extends Component {
         const selectedTopic = this.props.topic_slug;
         if (this.state.loading) return <h1>...loading</h1>
         return (
-            <div>
+            <div className="articles">
                 <h1 className="topic-title">{(selectedTopic && `${selectedTopic} Articles`) || `All Articles`}</h1>
                 <PostArticle topic={this.props.topic_slug} postArticle={this.postArticle} user={this.props.user}/>
                 {this.state.articles.map(article => {
@@ -25,8 +25,8 @@ class Articles extends Component {
                             <p>{article.created_at}</p>
                             <h2>{article.title}</h2>
                             <p>{article.body}</p>
-                            <p>Comments: {article.comment_count}</p>
-                            <p>Votes: {article.votes}</p>
+                            <span className="art-interactions comments">{article.comment_count} {(article.comment_count === 1 && `Comment`) || `Comments`}</span>
+                            <span className="art-interactions likes" >{article.votes} Likes</span>
                         </article>
                     </Link>
                   )

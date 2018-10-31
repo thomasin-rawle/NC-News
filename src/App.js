@@ -10,14 +10,16 @@ import * as api from './api'
 class App extends Component {
 
  state= {
-   user: ''
+   user: {
+      
+   }
  }
 
   render() {
     return (
      <div>
-      <Nav />
       <Login user={this.state.user} fetchUser={this.fetchUser}>
+      <Nav user={this.state.user} />
         <Router>
           <Articles path='/' user={this.state.user}/>
           <Articles path='/topics/:topic_slug' user={this.state.user}/>

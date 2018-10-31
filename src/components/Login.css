@@ -1,0 +1,31 @@
+.login {
+    background-color: #ececec;
+    width:300px;
+    margin: 40px auto;
+    border-radius:30px;
+    box-shadow: 10px 10px 17px -5px rgba(0,0,0,0.50);
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    text-align: center;
+    
+}
+.login input {
+    display:block;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: solid 1px #ccc;
+    font-size:14px;
+    margin-bottom: 20px;
+    
+
+}
+.login button{
+    border:none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color:#05a8aa;
+    color:white;
+    font:unset;
+    cursor: pointer;
+}
