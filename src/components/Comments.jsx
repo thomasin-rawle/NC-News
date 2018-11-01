@@ -57,7 +57,6 @@ class Comments extends Component {
   postComment = (comment) => {
     const newComment = {body: comment, created_by: this.props.user._id}
     const article_id = this.props.article_id
-    console.log(newComment)
     api.postComment(newComment, article_id)
     .then(postedComment => {
       this.setState({
@@ -68,7 +67,8 @@ class Comments extends Component {
   deleteComment = id => {
     const result = window.confirm('Are you sure you want to delete this comment?')
     if (result) {
-      api.deleteComment(id).then(newComments => {
+      api.deleteComment(id).then(() => {
+        const newComments = this.state.comments.filter(comment => comment._id !== id)        
         this.setState({
           comments: newComments
         });
