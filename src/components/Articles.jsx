@@ -50,7 +50,7 @@ class Articles extends Component {
                     {(article.comment_count === 1 && `Comment`) || `Comments`}
                   </span>
                 </Link>
-                <Like likeCount={article.votes} />
+                <Like likeCount={article.votes} target_id={article._id} type={'article'} />
               </div>
             </article>
           );
