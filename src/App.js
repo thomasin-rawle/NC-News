@@ -11,8 +11,9 @@ import * as api from './api'
 class App extends Component {
 
  state= {
-   user:{}
-  //  user: {"_id":"5bc236ce1b920d6065a80c89","username":"jessjelly","name":"Jess Jelly","avatar_url":"https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg","__v":0}
+  //  user:{}
+   topics: [],
+   user: {"_id":"5bc236ce1b920d6065a80c89","username":"jessjelly","name":"Jess Jelly","avatar_url":"https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg","__v":0}
  }
 
   render() {
@@ -20,9 +21,9 @@ class App extends Component {
     return (
      <div className={!currentUser.username ? 'notLoggedIn' : ''}>
       <Login user={currentUser} fetchUser={this.fetchUser}>
-      <Nav user={currentUser} />
+      <Nav topics={this.state.topics} user={currentUser} />
         <Router>
-          <Articles path='/' user={currentUser}/>
+          <Articles topics={this.state.topics} path='/' user={currentUser}/>
           <Articles path='/topics/:topic_slug' user={currentUser}/>
           <Article path='/article/:id' user={currentUser}/>
           <UserProfile path='users/:id' user={currentUser} logOut={this.signOut}/>
@@ -32,6 +33,16 @@ class App extends Component {
      </div>
     );
   }
+  componentDidMount() {
+    this.fetchTopics();
+  }
+  fetchTopics = () => {
+    api.getTopics().then(newTopics => {
+      this.setState({
+        topics: newTopics
+      });
+    });
+  };
   fetchUser = (username) => {
       api.getUser(username)
       .then(userInfo => {
