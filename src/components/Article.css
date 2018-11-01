@@ -1,0 +1,28 @@
+.individual-article {
+    display:grid;
+    grid-template-columns: 2fr 1fr
+}
+.individual-article .article {
+    display:block;
+    margin: 10px;
+    width:unset;
+}
+.individual-article .sidebar {
+    background-color:#ececec;
+    border-radius: 10px;
+    padding: 0 20px;
+    margin: 10px;
+}
+.individual-article .topic {
+    position: unset
+}
+button.back {
+    border:none;
+    background-color: #1a78cf;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font:unset;
+    color:#fff;
+    margin:20px 10px;
+    cursor:pointer;
+}
