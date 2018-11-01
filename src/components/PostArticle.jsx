@@ -24,10 +24,18 @@ class PostArticle extends Component {
                             <option value={this.props.topic}>{this.props.topic}</option>
                             </select>) || 
                             <select id='topic' onChange={this.handleChange} value={this.state.topic} >
-                                <option value="default">Choose One </option>
-                                <option value="coding">Coding</option>
+                             <option value="default">Choose One </option>
+                               {this.props.topics.map(topic => {
+                                return (
+                                    <option key={topic._id} value={topic.slug}>
+                                    {topic.title}
+                                    </option>
+                                );
+                            })}
+                               
+                                {/* <option value="coding">Coding</option>
                                 <option value="cooking">Cooking</option>
-                                <option value="football">Football</option>
+                                <option value="football">Football</option> */}
                             </select>}
                         </div>
                         <button>Post Article</button>

@@ -21,6 +21,7 @@ class Articles extends Component {
           {selectedTopic && `${selectedTopic} Articles`}
         </h1>
         <PostArticle
+          topics={this.props.topics}
           topic={this.props.topic_slug}
           postArticle={this.postArticle}
           user={this.props.user}
