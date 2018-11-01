@@ -12,7 +12,7 @@ class Nav extends Component {
    
     return (
       <div className="nav">
-      <div className="logo">{`<NC News/>`}</div>
+      <Link to="/"><div className="logo">{`<NC News/>`}</div></Link>
         <ul>
           <Link to="/">Home</Link>
           <div className="dropdown">
@@ -30,10 +30,12 @@ class Nav extends Component {
             </div>
           </div>
           </ul>
+          <Link to={`/users/${this.props.user._id}`}>
           <div className="logged-in">
             <ProfilePic user={this.props.user}/>
             {this.props.user.username}
           </div>
+          </Link>
       </div>
     );
   }

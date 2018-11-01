@@ -22,6 +22,9 @@
     font: unset;
     cursor: pointer;
   }
+  .nav a {
+    text-decoration: none;
+  }
   .nav ul a, .nav ul button {
     margin: 0 20px;
     text-decoration: none;
@@ -32,8 +35,8 @@
     vertical-align: top;
   }
   .nav ul a:hover, .nav ul a:active, .nav ul button:hover{
-    color:#BA1F31;
-    transition: 0.2s
+    transition: 0.2s;
+    
   }
   
   /* -------- NAV STYLING --------- */
@@ -69,7 +72,7 @@
     color: #474747;
   }
   .nav ul .dropdown-content a:hover {
-    background-color:#BA1F31;
+    background-color:#1a78cf;
     color:white;
   }
   .nav ul .dropdown:hover .dropdown-content {

@@ -10,8 +10,17 @@
 .individual-article .sidebar {
     background-color:#ececec;
     border-radius: 10px;
-    padding: 0 20px;
+    padding: 20px;
     margin: 10px;
+}
+.primary-color {
+    color:#01ABAA
+}
+.individual-article .sidebar .profile-pic {
+    margin-right:20px;
+} 
+.individual-article .sidebar p{
+    margin: 5px 0;
 }
 .individual-article .article .body {
     max-height: unset;

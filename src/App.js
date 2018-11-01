@@ -5,12 +5,14 @@ import Nav from './components/Nav';
 import Articles from './components/Articles';
 import Article from './components/Article';
 import Login from './components/Login';
+import UserProfile from './components/UserProfile';
 import * as api from './api'
 
 class App extends Component {
 
  state= {
-   user: {"_id":"5bc236ce1b920d6065a80c89","username":"jessjelly","name":"Jess Jelly","avatar_url":"https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg","__v":0}
+   user:{}
+  //  user: {"_id":"5bc236ce1b920d6065a80c89","username":"jessjelly","name":"Jess Jelly","avatar_url":"https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg","__v":0}
  }
 
   render() {
@@ -23,6 +25,7 @@ class App extends Component {
           <Articles path='/' user={currentUser}/>
           <Articles path='/topics/:topic_slug' user={currentUser}/>
           <Article path='/article/:id' user={currentUser}/>
+          <UserProfile path='users/:id' user={currentUser} logOut={this.signOut}/>
         </Router>
        </Login>
        {!currentUser.username && <svg viewBox="0 0 1614 189.7" preserveAspectRatio="none" className="curve" role="presentation" aria-hidden="true"><path d="M0,12c0,0,181.5,270.5,653,144c835-224,961-14,961-14V0H0V12z"></path></svg>}
@@ -35,6 +38,11 @@ class App extends Component {
         this.setState({
             user: userInfo
         })
+    })
+  }
+  signOut = () => {
+    this.setState({
+      user: {}
     })
   }
 }
