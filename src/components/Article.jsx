@@ -7,6 +7,7 @@ import Like from './Like';
 import formatDate from './utils/formatDate';
 import Comments from './Comments'
 
+
 class Article extends Component {
   state = {
     article: {},
@@ -19,7 +20,6 @@ class Article extends Component {
       <div>
       <Link to="/"><button className="back"><i className="fa fa-chevron-left" aria-hidden="true"></i> Back</button></Link>
       <div className="individual-article">
-      
         <article className="article individual">
           <div className="article-info">
                 <p className="topic">
@@ -38,7 +38,8 @@ class Article extends Component {
                   </span>
                 <Like likeCount={article.votes} target_id={article._id} type={'article'}/>
           </div>
-          <Comments articleAuthor={article.created_by} article_id={article._id} />
+          
+          <Comments user={this.props.user} articleAuthor={article.created_by} article_id={article._id} />
         </article>
         <article className="sidebar">
           <h1>User Profile</h1>

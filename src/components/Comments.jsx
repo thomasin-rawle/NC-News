@@ -3,6 +3,7 @@ import * as api from '../api';
 import './Comments.css';
 import ProfilePic from './ProfilePic';
 import Like from './Like';
+import PostComment from './PostComment';
 
 class Comments extends Component {
   state = {
@@ -11,6 +12,7 @@ class Comments extends Component {
   render() {
     return (
       <div>
+        <PostComment user={this.props.user} postComment={this.postComment} />
         {this.state.comments.map(comment => {
           return (
             <div key={comment._id} className="comment">
@@ -47,12 +49,22 @@ class Comments extends Component {
   }
   fetchComments = id => {
     api.getComments(id).then(newComments => {
-        console.log(newComments)
       this.setState({
         comments: newComments
       });
     });
   };
+  postComment = (comment) => {
+    const newComment = {body: comment, created_by: this.props.user._id}
+    const article_id = this.props.article_id
+    console.log(newComment)
+    api.postComment(newComment, article_id)
+    .then(postedComment => {
+      this.setState({
+        comments: [postedComment, ...this.state.comments]
+      });
+    });
+  }
   deleteComment = id => {
     const result = window.confirm('Are you sure you want to delete this comment?')
     if (result) {

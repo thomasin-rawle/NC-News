@@ -51,3 +51,18 @@ export const getComments = (id) => {
         .then(({data}) => data.comments)
     )
 }
+export const deleteComment = (id) => {
+    const url = `${BASE_URL}/comments/${id}`
+    return (
+        axios.delete(url)
+        .then(({data}) => data.comments)
+    )
+}
+export const postComment = (newComment, article_id) => {
+    console.log(newComment, article_id, 'posting')
+    const url = `${BASE_URL}/articles/${article_id}/comments`
+    return(
+        axios.post(url, newComment)
+        .then(({data}) => data.comment)
+    )
+}

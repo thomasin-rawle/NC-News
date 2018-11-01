@@ -13,6 +13,9 @@
     padding: 0 20px;
     margin: 10px;
 }
+.individual-article .article .body {
+    max-height: unset;
+}
 .individual-article .topic {
     position: unset
 }
