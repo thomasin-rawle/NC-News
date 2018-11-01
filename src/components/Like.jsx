@@ -8,10 +8,12 @@ class Like extends Component {
         voteChange: 0
     }
     render() {
+        const totalLikes = this.props.likeCount + this.state.voteChange
         return (
             <div className="likeDiv">
                <div className={this.state.isliked? 'heart is_animating' : 'heart'} onClick={this.handleClick}></div>
-               {this.props.likeCount + this.state.voteChange} Likes
+               {`${totalLikes} ${(totalLikes === 1 && `Like`) || `Likes`}`}
+                    
             </div>
         );
     }

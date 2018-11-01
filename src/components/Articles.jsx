@@ -46,8 +46,7 @@ class Articles extends Component {
               <div className="art-interactions">
                 <Link key={article._id} to={`/article/${article._id}`}>
                   <span className="comments">
-                    {article.comment_count}{' '}
-                    {(article.comment_count === 1 && `Comment`) || `Comments`}
+                  {`${article.comment_count} ${(article.comment_count === 1 && `Comment`) || `Comments`}`}
                   </span>
                 </Link>
                 <Like likeCount={article.votes} target_id={article._id} type={'article'} />

@@ -34,12 +34,11 @@ class Article extends Component {
           <div className="body">{article.body}</div>
           <div className="art-interactions">
                   <span className="comments">
-                    {article.comment_count}
-                    {(article.comment_count === 1 && `Comment`) || `Comments`}
+                  {`${article.comment_count} ${(article.comment_count === 1 && `Comment`) || `Comments`}`}
                   </span>
                 <Like likeCount={article.votes} target_id={article._id} type={'article'}/>
           </div>
-          <Comments article_id={article._id} />
+          <Comments articleAuthor={article.created_by} article_id={article._id} />
         </article>
         <article className="sidebar">
           <h1>User Profile</h1>

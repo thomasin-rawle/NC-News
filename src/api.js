@@ -37,3 +37,17 @@ export const postArticle = (newArticle, topic) => {
         .then(({data}) => data.article)
     )
 }
+export const updateLikeCount = (target_id, direction, type) => {
+    const url = type === 'comment' ? `${BASE_URL}/comments/${target_id}?vote=${direction}` : `${BASE_URL}/articles/${target_id}?vote=${direction}`
+    return(
+        axios.patch(url)
+        .then(({data}) => data[type])
+    )
+}
+export const getComments = (id) => {
+    const url = `${BASE_URL}/articles/${id}/comments`
+    return (
+        axios.get(url)
+        .then(({data}) => data.comments)
+    )
+}
