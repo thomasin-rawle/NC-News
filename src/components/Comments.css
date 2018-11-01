@@ -1,0 +1,27 @@
+.comment {
+    border-top: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+}
+.comment .top-bar > *{
+    display:inline-block;
+    vertical-align: middle;
+    color:#01ABAA;
+}
+.comment .art-interactions {
+    margin:-15px;
+}
+button.delete-comment {
+    color: #01ABAA;
+    font:unset;
+    border:none;
+    padding:0;
+    background-color: transparent;
+    cursor: pointer;
+    transition:0.1s;
+    -webkit-font-smoothing: antialiased;
+    
+}
+button.delete-comment:hover {
+    transform: scale(1.1)
+}
