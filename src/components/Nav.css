@@ -2,7 +2,7 @@
 .nav {
     margin: 0 auto;
     padding: 10px 0;
-    background-color: #202829;
+    background-color: #01ABAA;
     text-align: right;
     background-image: url('/nc_logo.png');
     background-repeat: no-repeat;
@@ -89,4 +89,12 @@
    border-radius:100%;
    overflow:hidden;
    margin-right:10px
+  }
+  .logo {
+    font-family: 'Cabin Sketch', cursive;
+    float: left;
+    margin-left: 30px;
+    color: white;
+    margin-top: 5px;
+    font-size: 30px;
   }

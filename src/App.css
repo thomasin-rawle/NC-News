@@ -1,7 +1,3 @@
-.notLoggedIn h1 {
-  text-align: center;
-  color: #01ABAA
-}
 .notLoggedIn {
   height: 60vh;
   background-image: url('/booksB&W.jpg');

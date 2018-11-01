@@ -18,7 +18,7 @@ class Articles extends Component {
     return (
       <div className="articles">
         <h1 className="topic-title">
-          {(selectedTopic && `${selectedTopic} Articles`)}
+          {selectedTopic && `${selectedTopic} Articles`}
         </h1>
         <PostArticle
           topic={this.props.topic_slug}
@@ -38,24 +38,20 @@ class Articles extends Component {
                   {article.belongs_to}
                 </p>
               </div>
-              
-                <div className="main-content">
-                  <Link to={`/article/${article._id}`}>
-                  <h2>{article.title}</h2>
-                  <div className="body">{article.body}</div>
-                  </Link>
-                  <div className="art-interactions">
-                  <Link key={article._id} to={`/article/${article._id}`}>
-                    <span className="comments">
-                      {article.comment_count}{' '}
-                      {(article.comment_count === 1 && `Comment`) || `Comments`}
-                    </span>
-                  </Link>
-                  <Like likeCount={article.votes}/>
-                    
-                  </div>
-                </div>
-              
+
+              <Link to={`/article/${article._id}`}>
+                <h2>{article.title}</h2>
+                <div className="body">{article.body}</div>
+              </Link>
+              <div className="art-interactions">
+                <Link key={article._id} to={`/article/${article._id}`}>
+                  <span className="comments">
+                    {article.comment_count}{' '}
+                    {(article.comment_count === 1 && `Comment`) || `Comments`}
+                  </span>
+                </Link>
+                <Like likeCount={article.votes} />
+              </div>
             </article>
           );
         })}

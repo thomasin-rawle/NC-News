@@ -12,6 +12,7 @@ class Nav extends Component {
    
     return (
       <div className="nav">
+      <div className="logo">{`<NC News/>`}</div>
         <ul>
           <Link to="/">Home</Link>
           <div className="dropdown">

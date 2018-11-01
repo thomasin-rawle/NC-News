@@ -26,7 +26,7 @@ class App extends Component {
           <Article path='/article/:id'/>
         </Router>
        </Login>
-       {!this.state.user.username && <svg viewBox="0 0 1614 189.7" preserveAspectRatio="none" class="curve" role="presentation" aria-hidden="true"><path d="M0,12c0,0,181.5,270.5,653,144c835-224,961-14,961-14V0H0V12z"></path></svg>}
+       {!this.state.user.username && <svg viewBox="0 0 1614 189.7" preserveAspectRatio="none" className="curve" role="presentation" aria-hidden="true"><path d="M0,12c0,0,181.5,270.5,653,144c835-224,961-14,961-14V0H0V12z"></path></svg>}
      </div>
     );
   }

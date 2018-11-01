@@ -9,15 +9,12 @@ h1.topic-title {
     margin: 10px auto;
     border-radius: 10px;
     overflow: hidden;
-}
-.article .main-content {
-    padding: 0 20px;
+    padding:0 20px;
 }
 .article .profile-pic {
     width: 35px;
     height:35px;
     border-radius:100%;
-    margin-left: 20px;
     float:unset;
     margin-right:10px;
 }
@@ -30,11 +27,11 @@ h1.topic-title {
     overflow: hidden;
 }
 .article-info {
-    background-color: #5eb1bf;
+    border-bottom: 1px solid #01ABAA;
     display:flex;
     align-items: center;
-    padding:5px 0;
-    color:white;
+    padding:10px 0 5px;
+    color:#01ABAA;
     position: relative;
 }
 .article-info > *{
