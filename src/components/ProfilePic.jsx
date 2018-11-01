@@ -1,23 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ProfilePic.css'
 
-class ProfilePic extends Component {
-    state = {
-        avatar_url : this.props.user.avatar_url
-    }
-    render() {
-        const {avatar_url} = this.state;
+const ProfilePic = (props) => {
+        const {avatar_url} = props.user
         return (
             <div className="profile-pic">
-                 <img src={avatar_url} onError={this.makeDefaultPhoto} alt="avatar"/>
+                 <img src={avatar_url} onError={(e) => e.target.src = '/default.jpg'} alt="avatar" />
             </div>
         );
-    }
-    makeDefaultPhoto = () => {
-        this.setState({
-            avatar_url: '/default.jpg'
-        })
-    }
-}
+};
 
 export default ProfilePic;
