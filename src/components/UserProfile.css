@@ -1,0 +1,40 @@
+.user-profile {
+    display:grid;
+    grid-template-columns: 1fr 2fr
+}
+.user-profile section{
+    background-color:#ececec;
+    border-radius: 10px;
+    padding: 20px;
+    margin:10px;
+}
+.user-profile .profile-pic {
+    margin-right:20px;
+}
+.user-profile .count-container {
+   text-align: center
+}
+.user-profile .count {
+    text-align: center;
+    margin: 20px 40px;
+    display:inline-block;
+}
+.user-profile h1 {
+    font-size:40px;
+    margin:0 auto;
+    color:#1a78cf;;
+    width:90px;
+    height:90px;
+    border:solid 3px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.user-profile p {
+    margin-top:10px;
+    
+}
+.user-profile h2 {
+    text-align: center
+}
