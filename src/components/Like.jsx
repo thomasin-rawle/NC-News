@@ -24,7 +24,7 @@ class Like extends Component {
                voteChange
             }
         })
-        api.updateLikeCount(this.props.article_id, direction)
+        api.updateLikeCount(this.props.target_id, direction, this.props.type)
     }
 }
 
