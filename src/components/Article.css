@@ -16,6 +16,9 @@
 .individual-article .topic {
     position: unset
 }
+.individual-article .article-info {
+    padding:10px 0
+}
 button.back {
     border:none;
     background-color: #1a78cf;

@@ -8,6 +8,9 @@
     vertical-align: middle;
     color:#01ABAA;
 }
+.comment .body {
+    font-size: 0.9em;
+}
 .comment .art-interactions {
     margin:-15px;
 }
@@ -20,6 +23,7 @@ button.delete-comment {
     cursor: pointer;
     transition:0.1s;
     -webkit-font-smoothing: antialiased;
+    outline:none;
     
 }
 button.delete-comment:hover {
