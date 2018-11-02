@@ -10,7 +10,8 @@ import Like from './Like';
 class Articles extends Component {
   state = {
     articles: [],
-    loading: true
+    loading: true,
+    error: ''
   };
   render() {
     const selectedTopic = this.props.topic_slug;
@@ -70,13 +71,19 @@ class Articles extends Component {
   }
   fetchArticles = () => {
     const selectedTopic = this.props.topic_slug;
-    api.getArticles(selectedTopic).then(newArticles => {
+    api.getArticles(selectedTopic)
+    .then(newArticles => {
       newArticles.sort(function(a,b){
         return new Date(b.created_at) - new Date(a.created_at);
       })
       this.setState({
         articles: newArticles,
         loading: false
+      });
+    })
+    .catch(error => {
+      this.setState({
+        error
       });
     });
   };

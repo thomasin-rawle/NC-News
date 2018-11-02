@@ -6,11 +6,12 @@ import Like from './Like';
 import formatDate from './utils/formatDate';
 import Comments from './Comments';
 import Back from './Back'
+import {navigate} from '@reach/router'
 
 class Article extends Component {
   state = {
     article: {},
-    loading: true
+    loading: true,
   };
   render() {
     const {article} = this.state;
@@ -66,7 +67,15 @@ class Article extends Component {
           article: newArticle,
           loading: false
         });
-      });
+      })
+      .catch(err => {
+        console.log(Object.keys(err))
+        console.log(err.response, '<<<')
+        navigate('/error', {replace: true, state: {
+            errCode: err.response.status,
+            errMsg: err.response.data.msg
+        }});
+    });
   };
 }
 

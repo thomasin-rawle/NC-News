@@ -3,7 +3,7 @@ import './Login.css'
 
 class Login extends Component {
     state = {
-        username : ''
+        username : 'jessjelly'
     }
     render() {
         if (this.props.user.username) return (this.props.children)
