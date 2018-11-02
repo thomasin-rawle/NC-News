@@ -27,7 +27,7 @@ class Comments extends Component {
                   target_id={comment._id}
                   type={'comment'}
                 />
-                {comment.created_by._id === this.props.articleAuthor._id && (
+                {comment.created_by._id === this.props.user._id && (
                   <button
                     className="delete-comment"
                     onClick={() => {
