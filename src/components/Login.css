@@ -29,7 +29,7 @@
     border:none;
     padding: 10px 15px;
     border-radius: 10px;
-    background-color:#01ABAA;
+    background-color:#21b8ef;
     color:white;
     font:unset;
     cursor: pointer;
@@ -37,5 +37,5 @@
 .login h1 {
     font-family: 'Cabin Sketch', cursive;
     text-align: center;
-    color: #01ABAA
+    color: #21b8ef;
   }

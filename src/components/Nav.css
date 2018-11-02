@@ -2,7 +2,7 @@
 .nav {
     margin: 0 auto;
     padding: 10px 0;
-    background-color: #01ABAA;
+    background-color: #303338;
     text-align: right;
     background-image: url('/nc_logo.png');
     background-repeat: no-repeat;
@@ -72,7 +72,7 @@
     color: #474747;
   }
   .nav ul .dropdown-content a:hover {
-    background-color:#1a78cf;
+    background-color:#21b8ef;
     color:white;
   }
   .nav ul .dropdown:hover .dropdown-content {

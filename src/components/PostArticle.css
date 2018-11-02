@@ -38,7 +38,7 @@ input:focus::placeholder, textarea:focus::placeholder {
     background-color: white;
     border-radius: 5px;
     display: inline-block;
-    border-left: 50px #01ABAA solid;
+    border-left: 50px #21b8ef solid;
     position: relative;
     vertical-align: middle
 }
@@ -62,7 +62,7 @@ input:focus::placeholder, textarea:focus::placeholder {
     -webkit-appearance: none;
 }
 .post-article-box button {
-    background-color: #01ABAA;
+    background-color: #21b8ef;
     color:white;
     border:none;
     padding: 7px 15px;

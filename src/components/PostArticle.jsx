@@ -59,10 +59,8 @@ class PostArticle extends Component {
     }
     handleChange = e => {
         const {id, value} = e.target;
-        //const currentTopic = this.props.topic ? this.props.topic : value
         this.setState({
             [id]:value,
-           
         })
     }
 }

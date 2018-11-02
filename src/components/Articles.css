@@ -27,11 +27,11 @@ h1.topic-title {
     overflow: hidden;
 }
 .article-info {
-    border-bottom: 1px solid #01ABAA;
+    border-bottom: 1px solid #21b8ef;
     display:flex;
     align-items: center;
     padding:10px 0 5px;
-    color:#01ABAA;
+    color:#21b8ef;
     position: relative;
 }
 .article-info > *{
@@ -52,7 +52,7 @@ h1.topic-title {
     content:'\f086';
     font-family: fontawesome;
     padding-right:5px;
-    color:#01ABAA;
+    color:#4fd0ff;
 }
 
 .likeDiv{

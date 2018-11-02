@@ -31,7 +31,7 @@ textarea:focus::placeholder {
     text-align: right
 }
 .post-comment-box button {
-    background-color: #01ABAA;
+    background-color: #21b8ef;
     color:white;
     border:none;
     padding: 7px 15px;

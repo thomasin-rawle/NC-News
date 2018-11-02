@@ -14,7 +14,7 @@
     margin: 10px;
 }
 .primary-color {
-    color:#01ABAA
+    color:#21b8ef;
 }
 .individual-article .sidebar .profile-pic {
     margin-right:20px;
@@ -33,7 +33,7 @@
 }
 button.back {
     border:none;
-    background-color: #1a78cf;
+    background-color: #21b8ef;
     padding: 5px 10px;
     border-radius: 5px;
     font:unset;
