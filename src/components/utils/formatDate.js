@@ -9,8 +9,7 @@ if (dateInMS < olderThanADay) {
 }
 else {
     const now = new Date(Date.now())
-    const n = now.getHours() - dateInMS.getHours()
-    console.log(n)
+    const n = Math.floor(Math.abs(now - dateInMS) / 36e5);
     date = n === 1 ? `${n} hour ago` : `${n} hours ago`
 }
 return date
