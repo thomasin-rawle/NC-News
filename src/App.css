@@ -15,3 +15,8 @@ svg.curve {
   height: 100px;
   width: 100%;
 }
+.loading {
+  text-align: center;
+  font-size: 4em;
+  margin-top: 40px;
+}

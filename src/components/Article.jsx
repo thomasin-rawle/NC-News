@@ -7,7 +7,6 @@ import formatDate from './utils/formatDate';
 import Comments from './Comments';
 import Back from './Back'
 
-
 class Article extends Component {
   state = {
     article: {},
@@ -15,7 +14,7 @@ class Article extends Component {
   };
   render() {
     const {article} = this.state;
-    if (this.state.loading) return <h1>...loading</h1>;
+    if (this.state.loading) return <div className="loading"><i className="fa fa-spinner fa-pulse" aria-hidden="true"></i></div>;
     return (
       <div>
         <Back  />
@@ -41,11 +40,12 @@ class Article extends Component {
             
             <Comments user={this.props.user} articleAuthor={article.created_by} article_id={article._id} />
           </article>
-          <article className="sidebar">
-            <ProfilePic user={article.created_by} />
-            <p>Posted by <strong><span className="primary-color">{article.created_by.username}</span></strong></p>
-            <p className="primary-color">{article.created_by.name}</p>
-          </article>
+          <section className="sidebar">
+                <div className="profile">
+                    <ProfilePic user={article.created_by}/>
+                    <p>Posted by <strong><span className="primary-color">{article.created_by.username}</span></strong></p>
+                    </div> 
+                </section >
         </div>
       </div>
     );

@@ -1,6 +1,9 @@
 .individual-article {
     display:grid;
-    grid-template-columns: 2fr 1fr
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+    'main main sidebar '
+    'main main .';
 }
 .individual-article .article {
     display:block;
@@ -12,15 +15,20 @@
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
+    grid-area: sidebar;
+    min-width:200px;
 }
 .primary-color {
     color:#21b8ef;
+}
+.individual-article .article {
+    grid-area: main
 }
 .individual-article .sidebar .profile-pic {
     margin-right:20px;
 } 
 .individual-article .sidebar p{
-    margin: 5px 0;
+    margin: 0 0 10px 0;
 }
 .individual-article .article .body {
     max-height: unset;
@@ -40,4 +48,18 @@ button.back {
     color:#fff;
     margin:20px 10px;
     cursor:pointer;
+}
+.individual-article .profile {
+    margin-bottom: 80px;
+}
+button.viewProfile {
+    border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #21b8ef;
+  color: white;
+  font: unset;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
 }

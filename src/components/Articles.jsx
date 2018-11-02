@@ -14,7 +14,7 @@ class Articles extends Component {
   };
   render() {
     const selectedTopic = this.props.topic_slug;
-    if (this.state.loading) return <h1>...loading</h1>;
+    if (this.state.loading) return <div className="loading"><i className="fa fa-spinner fa-pulse" aria-hidden="true"></i></div>;
     return (
       <div className="articles">
         <h1 className="topic-title">
@@ -71,6 +71,9 @@ class Articles extends Component {
   fetchArticles = () => {
     const selectedTopic = this.props.topic_slug;
     api.getArticles(selectedTopic).then(newArticles => {
+      newArticles.sort(function(a,b){
+        return new Date(b.created_at) - new Date(a.created_at);
+      })
       this.setState({
         articles: newArticles,
         loading: false

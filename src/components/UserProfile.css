@@ -1,40 +1,91 @@
 .user-profile {
-    display:grid;
-    grid-template-columns: 1fr 2fr
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    'sidebar main main '
+    '. main main';
 }
-.user-profile section{
-    background-color:#ececec;
-    border-radius: 10px;
-    padding: 20px;
-    margin:10px;
+.sidebar {
+  grid-area: sidebar;
+}
+.main {
+  grid-area: main;
+}
+
+.sidebar button {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #21b8ef;
+  color: white;
+  font: unset;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+.user-profile section {
+  background-color: #ececec;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+}
+.user-profile .profile {
+  margin-bottom: 60px;
 }
 .user-profile .profile-pic {
-    margin-right:20px;
+  margin-right: 20px;
 }
 .user-profile .count-container {
-   text-align: center
+  text-align: center;
 }
 .user-profile .count {
-    text-align: center;
-    margin: 20px 40px;
-    display:inline-block;
+  text-align: center;
+  margin: 20px 40px;
+  display: inline-block;
 }
 .user-profile h1 {
-    font-size:40px;
-    margin:0 auto;
-    color:#21b8ef;
-    width:90px;
-    height:90px;
-    border:solid 3px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center
+  font-size: 40px;
+  margin: 0 auto;
+  color: #21b8ef;
+  width: 90px;
+  height: 90px;
+  border: solid 3px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .user-profile p {
-    margin-top:10px;
-    
+  margin-top: 10px;
 }
 .user-profile h2 {
-    text-align: center
+  text-align: center;
+}
+.userArticles__container, .userComments__container{
+    padding:10px 40px;
+}
+.article-container, .comment-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin: 20px 0
+}
+.comment-container {
+    padding:0;
+}
+.user-profile h3.article-name, .user-profile h3.comment-article-name  {
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+  margin:0;
+  color:#21b8ef;
+}
+.user-profile .comment-text {
+    width: 70%;
+}
+.user-profile p.article-date, .user-profile p.comment-date {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  width:20%
 }

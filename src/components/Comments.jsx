@@ -49,6 +49,9 @@ class Comments extends Component {
   }
   fetchComments = id => {
     api.getComments(id).then(newComments => {
+      newComments.sort(function(a,b){
+        return new Date(b.created_at) - new Date(a.created_at);
+      })
       this.setState({
         comments: newComments
       });
