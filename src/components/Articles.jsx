@@ -79,7 +79,7 @@ class Articles extends Component {
   };
   postArticle = (article, topic) => {
     const newArticle = { ...article, created_by: this.props.user._id };
-    const selectedTopic = topic ? topic : this.props.topic_slug;
+    const selectedTopic = topic.length > 0 ? topic : this.props.topic_slug;
     api.postArticle(newArticle, selectedTopic).then(postedArticle => {
       this.setState({
         articles: [postedArticle, ...this.state.articles]

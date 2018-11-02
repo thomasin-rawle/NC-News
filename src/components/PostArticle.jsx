@@ -6,9 +6,10 @@ class PostArticle extends Component {
     state = {
         title: '',
         body: '',
-        topic: this.props.topic
+        topic: ''
     }
     render() {
+       
         return (
             <div className="post-article-box__container">
             <div className="post-article-box">
@@ -32,10 +33,6 @@ class PostArticle extends Component {
                                     </option>
                                 );
                             })}
-                               
-                                {/* <option value="coding">Coding</option>
-                                <option value="cooking">Cooking</option>
-                                <option value="football">Football</option> */}
                             </select>}
                         </div>
                         <button>Post Article</button>
@@ -48,12 +45,12 @@ class PostArticle extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const {title, body, topic} = this.state;
-        if (title.length > 0 && body.length > 0 && topic !== undefined) {
+        if (title.length > 0 && body.length > 0  && topic !== 'default') {
             this.props.postArticle({title, body}, topic)
             this.setState({
                 title: '',
                 body: '',
-                topic: this.props.topic
+                topic: ''
             })
         }
         else {
@@ -62,8 +59,10 @@ class PostArticle extends Component {
     }
     handleChange = e => {
         const {id, value} = e.target;
+        //const currentTopic = this.props.topic ? this.props.topic : value
         this.setState({
-            [id]:value
+            [id]:value,
+           
         })
     }
 }
