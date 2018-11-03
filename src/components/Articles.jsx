@@ -6,6 +6,7 @@ import PostArticle from './PostArticle';
 import formatDate from './utils/formatDate';
 import ProfilePic from './ProfilePic';
 import Like from './Like';
+import {Row, Col, Grid} from 'react-bootstrap';
 
 class Articles extends Component {
   state = {
@@ -27,18 +28,23 @@ class Articles extends Component {
           postArticle={this.postArticle}
           user={this.props.user}
         />
+        <Grid>
         {this.state.articles.map(article => {
           return (
-            <article key={article._id} className="article">
+            
+            <Row key={article._id}>
+            <Col xs={12} md={8} xsOffset={0} mdOffset={2}>
+            <article  className="article">
               <div className="article-info">
                 <ProfilePic user={article.created_by} />
-                <p>Posted by {article.created_by.name}</p>
-                <p>|</p>
-                <p>{formatDate(article.created_at)}</p>
                 <p className="topic">
                   nc/
                   {article.belongs_to}
                 </p>
+                <p className="name">Posted by {article.created_by.name}</p>
+                <p>|</p>
+                <p>{formatDate(article.created_at)}</p>
+               
               </div>
 
               <Link to={`/article/${article._id}`}>
@@ -54,17 +60,19 @@ class Articles extends Component {
                 <Like likeCount={article.votes} target_id={article._id} type={'article'} />
               </div>
             </article>
+            </Col>
+            </Row>
+           
           );
         })}
+         </Grid>
       </div>
     );
   }
   componentDidMount() {
-    console.log('...Articles mounted');
     this.fetchArticles();
   }
   componentDidUpdate(prevProps) {
-    console.log('...Articles updated');
     if (prevProps.topic_slug !== this.props.topic_slug) {
       this.fetchArticles();
     }

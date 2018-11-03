@@ -4,7 +4,6 @@ h1.topic-title {
     text-align: center;
 }
 .article {
-    width:600px;
     background-color: #ececec;
     margin: 10px auto;
     border-radius: 10px;
@@ -15,16 +14,12 @@ h1.topic-title {
     width: 35px;
     height:35px;
     border-radius:100%;
-    float:unset;
+    float:left;
     margin-right:10px;
 }
 .articles a {
     text-decoration: none;
     color:inherit;
-}
-.article .body {
-    max-height: 100px;
-    overflow: hidden;
 }
 .article-info {
     border-bottom: 1px solid #21b8ef;
@@ -99,4 +94,19 @@ h1.topic-title {
     .article {
         width:100%;
     }
+    .article-info {
+        display:block;
+    }
+    .article-info > * {
+        vertical-align: middle;
+    }
+    .article .topic {
+        position: relative;
+       display:block;
+       right:unset;
+    }
+    .article .name {
+        padding-left:0;
+    }
 }
+

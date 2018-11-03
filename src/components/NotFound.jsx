@@ -2,7 +2,6 @@ import React from 'react';
 import './NotFound.css'
 
 const NotFound = (props) => {
-    console.log(props)
     return (
         <div className="error">
             {(props.path && 

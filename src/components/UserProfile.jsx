@@ -12,7 +12,6 @@ class UserProfile extends Component {
         userComments: []
     }
     render() {
-        console.log(this.props)
         const {user, logOut} = this.props
         return (
             <div>
@@ -81,8 +80,8 @@ class UserProfile extends Component {
         this.fetchUserComments();
     }
     fetchUserArticles = () => {
-        const {user} = this.props
-        api.getUserArticles(user._id)
+        const {id} = this.props
+        api.getUserArticles(id)
         .then(articles => {
             articles.sort(function(a,b){
                 return new Date(b.created_at) - new Date(a.created_at);

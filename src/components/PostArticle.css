@@ -7,20 +7,22 @@
     background-color: #ececec;
     border-radius: 10px;
     margin-bottom: 20px;
+    width:100%;
+    text-align: center
 }
 .post-article-box input, .post-article-box textarea {
     display: block;
     margin-left: 90px;
-    width:300px;
     padding: 6px 10px;
     border-radius:5px;
     border: 1px #ccc solid;
     font-size:12px;
     color:#474747;
     margin-bottom: 10px;
+    width: calc(98% - 80px);
 }
 .post-article-box textarea {
-    min-height: 50px;
+    min-height: 80px;
 }
 input::placeholder, textarea::placeholder {
     color:#ccc;
@@ -60,16 +62,34 @@ input:focus::placeholder, textarea:focus::placeholder {
 }
 .post-article-box select:disabled{
     -webkit-appearance: none;
+    color: #ccc;
 }
 .post-article-box button {
     background-color: #21b8ef;
     color:white;
     border:none;
-    padding: 7px 15px;
+    padding: 5px 15px;
     border-radius:8px;
     font:unset;
     font-size:14px;
     margin-left:10px;
     vertical-align: middle;
     cursor: pointer;
+}
+
+@media (max-width: 575px) {
+
+    .post-article-box .profile-pic {
+        display:none;
+    }
+    .form-components {
+        float:unset;
+    }
+    .post-article-box input, .post-article-box textarea {
+        width:100%;
+        margin-left:0;
+    }
+    .post-article-box textarea {
+       min-height: 80px;
+    }
 }

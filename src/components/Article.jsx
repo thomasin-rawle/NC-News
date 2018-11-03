@@ -69,8 +69,6 @@ class Article extends Component {
         });
       })
       .catch(err => {
-        console.log(Object.keys(err))
-        console.log(err.response, '<<<')
         navigate('/error', {replace: true, state: {
             errCode: err.response.status,
             errMsg: err.response.data.msg

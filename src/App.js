@@ -13,14 +13,14 @@ class App extends Component {
 
  state= {
    user:{},
-   topics: [],
-  //  user: {"_id":"5bc236ce1b920d6065a80c89","username":"jessjelly","name":"Jess Jelly","avatar_url":"https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg","__v":0}
+   topics: []
  }
 
   render() {
+    
     const currentUser = this.state.user
     return (
-     <div className={!currentUser.username ? 'notLoggedIn' : ''}>
+    <div className={!currentUser.username ? 'notLoggedIn' : ''}>
       <Login user={currentUser} fetchUser={this.fetchUser}>
       <Nav topics={this.state.topics} user={currentUser} />
         <Router>
@@ -37,7 +37,21 @@ class App extends Component {
     );
   }
   componentDidMount() {
+    console.log('mounted')
+   
     this.fetchTopics();
+    const user = sessionStorage.getItem('user')
+    if (sessionStorage.user) {
+      this.setState({
+          user: JSON.parse(user)
+        })
+    }
+   
+  }
+  componentDidUpdate (prevProps, prevState) {
+    if(prevState.user !== this.state.user){
+      sessionStorage.setItem('user' , JSON.stringify(this.state.user))
+    }
   }
   fetchTopics = () => {
     api.getTopics().then(newTopics => {
@@ -52,9 +66,11 @@ class App extends Component {
         this.setState({
             user: userInfo
         })
+       
     })
   }
   signOut = () => {
+    sessionStorage.clear()
     this.setState({
       user: {}
     })
