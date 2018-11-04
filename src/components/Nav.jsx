@@ -23,7 +23,6 @@ class Nav extends Component {
               </button>
               <div className="dropdown-content">
                 {this.props.topics.map(topic => {
-                  console.log(topic.title);
                   return (
                     <Link key={topic._id} to={`/topics/${topic.slug}`}>
                       {topic.title}
@@ -77,7 +76,6 @@ class Nav extends Component {
                   <Link onClick={this.toggleClass} to="/">Home</Link>
                 </li>
                 {this.props.topics.map(topic => {
-                  console.log(topic.title);
                   return (
                     <li key={topic._id}>
                       <Link onClick={this.toggleClass} to={`/topics/${topic.slug}`}>{topic.title}</Link>
@@ -93,7 +91,6 @@ class Nav extends Component {
   }
   toggleClass() {
     const currentState = this.state.isMobileNavActive;
-    console.log(this.state);
     this.setState({
       isMobileNavActive: !currentState
     });
