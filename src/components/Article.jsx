@@ -15,9 +15,9 @@ class Article extends Component {
     loading: true
   };
   render() {
-    const { article } = this.state;
-    console.log(article.created_by)
-    if (this.state.loading)
+    const { article, loading } = this.state;
+    const { user } = this.props
+    if (loading)
       return (
         <div className="loading">
           <i className="fa fa-spinner fa-pulse" aria-hidden="true" />
@@ -77,7 +77,7 @@ class Article extends Component {
                 </div>
 
                 <Comments
-                  user={this.props.user}
+                  user={user}
                   articleAuthor={article.created_by}
                   article_id={article._id}
                 />
@@ -90,11 +90,13 @@ class Article extends Component {
     );
   }
   componentDidMount() {
-    this.fetchArticle(this.props.id);
+    const {id} = this.props
+    this.fetchArticle(id);
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.id !== this.props.id) {
-      this.fetchArticle(this.props.id);
+    const {id} = this.props
+    if (prevProps.id !== id) {
+      this.fetchArticle(id);
     }
   }
   fetchArticle = id => {
@@ -109,7 +111,7 @@ class Article extends Component {
       .catch(err => {
         navigate('/error', {
           replace: true,
-          state: {
+           state: {
             errCode: err.response.status,
             errMsg: err.response.data.msg
           }
