@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router } from '@reach/router';
+import { Router, navigate } from '@reach/router';
 import './App.css';
 import Nav from './components/Nav';
 import Articles from './components/Articles';
@@ -74,6 +74,7 @@ class App extends Component {
     this.setState({
       user: {}
     })
+    navigate('/');
   }
 }
 
