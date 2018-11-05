@@ -1,18 +1,10 @@
-.user-profile {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas:
-    'sidebar main main '
-    '. main main';
-}
-.sidebar {
-  grid-area: sidebar;
-}
-.main {
-  grid-area: main;
+.user-profile article, .user-profile aside {
+  background-color:#ececec;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-.sidebar button {
+aside button {
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
@@ -22,12 +14,6 @@
   cursor: pointer;
   display: block;
   margin: 10px auto;
-}
-.user-profile section {
-  background-color: #ececec;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 10px;
 }
 .user-profile .profile {
   margin-bottom: 60px;
@@ -87,5 +73,27 @@
   display: inline-block;
   vertical-align: top;
   margin: 0;
-  width:20%
+  width:30%;
+  text-align: right;
+}
+
+@media(max-width:991px) {
+  .user-profile aside {
+      margin-bottom: 20px;
+      text-align: center
+  }
+  .user-profile h3.article-name, .user-profile h3.comment-article-name  {
+    font-size: 20px;
+  }
+  .user-profile .profile-pic {
+    float: unset;
+    
+    margin: 0 auto;
+  }
+  
+}
+@media(max-width:767px) {
+  .userArticles__container, .userComments__container{
+    padding:20px 0;;
+  }
 }

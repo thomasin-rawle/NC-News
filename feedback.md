@@ -1,5 +1,14 @@
 # Checklist for Northcoders News - Front End
 
+## Tommys' list (in order)
+
+- [x] style user profile page for mobile
+- [ ] cut off article length on home page at 100-150 chars
+- [ ] error handling
+- [ ] add button to article page to view authors profile
+- [ ] cut off comment/article history at 20 on user profile
+- [ ] add some pie charts into user profile page e.g. topics contributed to 
+
 ## README
 
 - [ ] provides general info about app
@@ -11,32 +20,32 @@
 
 ## UX
 
-- [x ] Basic styling added
-- [ ?] Responsive design - ish. There is overlap between date/topic on the homepage in mobile view. Article page unreadable in mobile view
-- [ x] Items aligned
-- [ ?] Content legible (not too wide, obstructed, etc) - not on mobile view
-- [ ?] Refreshing doesn’t cause an issue on sub-pages - refreshing on any page takes me back to the login page. Recommend storing the login details in local storage! This is especially annoying when trying to manually change pages through the URL.
-- [? ] No errors in the console - on the articles page I am getting ‘articles mounted’/‘articles updated’
-- [ x] Login / Votes / Posts / Deletions happen instantly _OR_ give user indication of loading
+- [x] Basic styling added
+- [?] Responsive design - ish. There is overlap between date/topic on the homepage in mobile view. Article page unreadable in mobile view
+- [x] Items aligned
+- [?] Content legible (not too wide, obstructed, etc) - not on mobile view
+- [x] Refreshing doesn’t cause an issue on sub-pages - refreshing on any page takes me back to the login page. Recommend storing the login details in local storage! This is especially annoying when trying to manually change pages through the URL.
+- [x] No errors in the console - on the articles page I am getting ‘articles mounted’/‘articles updated’
+- [x] Login / Votes / Posts / Deletions happen instantly _OR_ give user indication of loading
 
 ## Functionality
 
-- [ x] Some way to log in (should be very obvious to hiring partners) - perhaps not obvious you don’t need a password! Perhaps autofill this? Or remove the password box entirely.
-- [ x] Some indication of who is logged in
+- [?] Some way to log in (should be very obvious to hiring partners) - perhaps not obvious you don’t need a password! Perhaps autofill this? Or remove the password box entirely.
+- [x] Some indication of who is logged in
 - [x] A way to log out
-- [ x] Serves all articles / top articles
-- [ x] Can vote on articles
-- [ x ] Can vote a maximum of once in either direction per page load - can only vote up (like) - this is less of a problem than a different implementation.
-- [ x] Votes are persistent when page is refreshed
-- [ x] Topic pages load only relevant articles (especially when navigating from one topic page to another)
-- [x ] Individual articles are served with comments
-- [ x] Can vote on comments
-- [ x] New comments are persistent
-- [ x] Can only delete comments of logged in user
-- [ x] Deleted comments don’t re-appear on re-render/refresh
-- [x ] Can post an article
+- [x] Serves all articles / top articles
+- [x] Can vote on articles
+- [x] Can vote a maximum of once in either direction per page load - can only vote up (like) - this is less of a problem than a different implementation.
+- [x] Votes are persistent when page is refreshed
+- [x] Topic pages load only relevant articles (especially when navigating from one topic page to another)
+- [x] Individual articles are served with comments
+- [x] Can vote on comments
+- [x] New comments are persistent
+- [x] Can only delete comments of logged in user
+- [x] Deleted comments don’t re-appear on re-render/refresh
+- [x] Can post an article
 - [x] User page
-- [ ] Users page - No page for all users, and navigating to other user pages is tricky - I can’t click on their pages and there is no page with all users on.
+- [ ] Users page - No page for all users, and navigating to other user pages is tricky - I can’t click on their pages and there is no page with all users on. Add being able to see other users page when clicked on their article sidebar
 
 ## Error Handling
 

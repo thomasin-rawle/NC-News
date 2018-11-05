@@ -4,6 +4,7 @@ import ProfilePic from './ProfilePic';
 import * as api from '../api'
 import './UserProfile.css'
 import formatDate from './utils/formatDate';
+import {Row, Col, Grid} from 'react-bootstrap';
 
 
 class UserProfile extends Component {
@@ -14,21 +15,24 @@ class UserProfile extends Component {
     render() {
         const {user, logOut} = this.props
         return (
-            <div>
+                <Grid>
                 <Back  />
                 
-                <div className="user-profile">
-                <section className="sidebar">
-                <div className="profile">
-                    <ProfilePic user={user} />
-                    <p>Name: <span className="primary-color">{user.name}</span></p>
-                    <p>Username: <span className="primary-color">{user.username}</span></p>
+                <Row className="user-profile">
+                    <Col xs={12} md={4} mdPush={8}>
+                    <aside className="sidebar">
+                    <div className="profile">
+                        <ProfilePic user={user} />
+                        <p>Name: <span className="primary-color">{user.name}</span></p>
+                        <p>Username: <span className="primary-color">{user.username}</span></p>
                     </div>
-                    <div>
-                    <button onClick={logOut}>Log Out</button>
-                    </div>
-                </section >
-                <section className="main">
+                        <div className="" >
+                        <button onClick={logOut}>Log Out</button>
+                        </div>
+                    </aside >
+                    </Col>
+                <Col xs={12} md={8} mdPull={4}>
+                <article className="main">
                 <div className="count-container ">
                         <div className="count">
                             <h1>{this.state.userArticles.length}</h1>
@@ -66,13 +70,13 @@ class UserProfile extends Component {
                             )
                         })}
                         </div>
-                </section>
-                   
-                    
-                </div>
+                </article>
+                    </Col>
+                </Row>
+                </Grid>
                 
                 
-            </div>
+           
         );
     }
     componentDidMount(){
