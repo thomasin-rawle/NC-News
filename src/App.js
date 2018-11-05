@@ -27,7 +27,7 @@ class App extends Component {
           <Articles topics={this.state.topics} path='/' user={currentUser}/>
           <Articles path='/topics/:topic_slug' user={currentUser}/>
           <Article path='/article/:id' user={currentUser}/>
-          <UserProfile path='users/:id' user={currentUser} logOut={this.signOut}/>
+          <UserProfile path='users/:username' currentUser={currentUser} logOut={this.signOut}/>
           <NotFound default />
           <NotFound path='/error'/>
         </Router>

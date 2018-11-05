@@ -6,7 +6,7 @@ import Like from './Like';
 import formatDate from './utils/formatDate';
 import Comments from './Comments';
 import Back from './Back';
-import { navigate } from '@reach/router';
+import { navigate, Link } from '@reach/router';
 import { Row, Col, Grid } from 'react-bootstrap';
 
 class Article extends Component {
@@ -16,6 +16,7 @@ class Article extends Component {
   };
   render() {
     const { article } = this.state;
+    console.log(article.created_by)
     if (this.state.loading)
       return (
         <div className="loading">
@@ -29,8 +30,10 @@ class Article extends Component {
           <Row className="individual-article">
           <Col md={4} mdPush={8}>
               <aside>
+              <Link to={`/users/${article.created_by.username}`}>
                 <div className="profile">
                   <ProfilePic user={article.created_by} />
+                  <div className="profile__info">
                   <p>Posted by</p>
                   <p>
                     <strong>
@@ -39,7 +42,13 @@ class Article extends Component {
                       </span>
                     </strong>
                   </p>
+                  </div>
                 </div>
+                </Link>
+                <div className="see-profile">
+                  <Link to={`/users/${article.created_by.username}`}><button>See Profile</button></Link>
+                </div>
+                
               </aside>
             </Col>
             <Col md={8} mdPull={4}>

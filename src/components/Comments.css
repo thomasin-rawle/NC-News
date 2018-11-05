@@ -8,6 +8,9 @@
     align-items: center;
     color:#21b8ef;
 }
+.comment a {
+    text-decoration: none;
+}
 .comment .top-bar > p{
     margin:0
  }

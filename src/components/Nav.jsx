@@ -9,6 +9,7 @@ class Nav extends Component {
     isMobileNavActive: false
   };
   render() {
+   
     return (
       <div>
         <nav className="nav desktop-nav">
@@ -31,7 +32,7 @@ class Nav extends Component {
                 })}
               </div>
             </div>
-            <Link to={`/users/${this.props.user._id}`}>
+            <Link to={`/users/${this.props.user.username}`}>
               <div className="logged-in">
                 <ProfilePic user={this.props.user} />
                 {this.props.user.username}
@@ -65,11 +66,11 @@ class Nav extends Component {
             }
             id="overlay"
           >
-            <div class="overlay-menu">
+            <div className="overlay-menu">
               <ul>
                 <li>
-                  <Link onClick={this.toggleClass} to={`/users/${this.props.user._id}`}>
-                    <div>{`Profile: ${this.props.user.username}`}</div>
+                  <Link onClick={this.toggleClass} to={`/users/${this.props.username}`}>
+                    <div>{`Profile: ${this.props.username}`}</div>
                   </Link>
                 </li>
                 <li>

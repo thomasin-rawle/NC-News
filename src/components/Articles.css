@@ -88,6 +88,26 @@ h1.topic-title {
 .art-interactions > * {
     padding-right:20px;
 }
+.see-more {
+    text-align: center;
+    margin-top:10px;
+}
+.see-more button {
+    background-color: #21b8ef;
+    color:white;
+    padding: 5px 10px;
+    border:none;
+    border-radius: 8px;
+    font:unset;
+    font-size:14px;
+    
+}
+.ellipsis {
+    margin-left:10px;
+    vertical-align: sub;
+    color: #21b8ef;
+    font-size:1.1em;
+}
 
 /* Media Queries */
 @media (max-width:767px) {

@@ -3,9 +3,9 @@
 ## Tommys' list (in order)
 
 - [x] style user profile page for mobile
-- [ ] cut off article length on home page at 100-150 chars
+- [x] cut off article length on home page at 100-150 chars
 - [ ] error handling
-- [ ] add button to article page to view authors profile
+- [x] add button to article page to view authors profile
 - [ ] cut off comment/article history at 20 on user profile
 - [ ] add some pie charts into user profile page e.g. topics contributed to 
 

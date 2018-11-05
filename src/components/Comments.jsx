@@ -4,6 +4,7 @@ import './Comments.css';
 import ProfilePic from './ProfilePic';
 import Like from './Like';
 import PostComment from './PostComment';
+import { Link } from '@reach/router';
 
 class Comments extends Component {
   state = {
@@ -16,10 +17,12 @@ class Comments extends Component {
         {this.state.comments.map(comment => {
           return (
             <div key={comment._id} className="comment">
+            <Link to={`/users/${comment.created_by.username}`}>
               <div className="top-bar">
                 <ProfilePic user={comment.created_by} />
                 <p>{comment.created_by.username}</p>
               </div>
+              </Link>
               <p className="body">{comment.body}</p>
               <div className="art-interactions">
                 <Like
