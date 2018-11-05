@@ -39,3 +39,21 @@
     text-align: center;
     color: #21b8ef;
   }
+  .notLoggedIn {
+    height: 60vh;
+    background-image: url('/booksB&W.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0 -15px;
+    position: relative;
+  }
+
+  .notLoggedIn svg.curve {
+    fill: #fff;
+    position: absolute;
+    bottom: -1px;
+    transform: rotateX(180deg);
+    height: 100px;
+    width: 100%;
+  }

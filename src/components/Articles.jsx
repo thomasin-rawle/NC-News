@@ -113,11 +113,11 @@ class Articles extends Component {
           loading: false
         });
       })
-      .catch(error => {
-        this.setState({
-          error
-        });
-      });
+      // .catch(error => {
+      //   this.setState({
+      //     error
+      //   });
+      // });
   };
   postArticle = (article, topic) => {
     const newArticle = { ...article, created_by: this.props.user._id };

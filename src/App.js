@@ -8,6 +8,7 @@ import Login from './components/Login';
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound'
 import * as api from './api'
+import LoginError from './components/LoginError';
 
 class App extends Component {
 
@@ -20,8 +21,9 @@ class App extends Component {
     
     const currentUser = this.state.user
     return (
-    <div className={!currentUser.username ? 'notLoggedIn' : ''}>
-      <Login user={currentUser} fetchUser={this.fetchUser}>
+    <div>
+     <Router>
+      <Login path='/' user={currentUser} fetchUser={this.fetchUser}>
       <Nav topics={this.state.topics} user={currentUser} />
         <Router>
           <Articles topics={this.state.topics} path='/' user={currentUser}/>
@@ -32,7 +34,8 @@ class App extends Component {
           <NotFound path='/error'/>
         </Router>
        </Login>
-       {!currentUser.username && <svg viewBox="0 0 1614 189.7" preserveAspectRatio="none" className="curve" role="presentation" aria-hidden="true"><path d="M0,12c0,0,181.5,270.5,653,144c835-224,961-14,961-14V0H0V12z"></path></svg>}
+       <LoginError path='/login/error'/>
+       </Router>
      </div>
     );
   }
@@ -58,16 +61,25 @@ class App extends Component {
       this.setState({
         topics: newTopics
       });
-    });
+    })
+   
   };
+  
   fetchUser = (username) => {
       api.getUser(username)
       .then(userInfo => {
         this.setState({
             user: userInfo
         })
-       
     })
+    .catch(err => {
+      navigate('/login/error', {
+         state: {
+          errCode: err.response.status,
+          errMsg: err.response.data.msg
+        }
+      });
+    });
   }
   signOut = () => {
     sessionStorage.clear()

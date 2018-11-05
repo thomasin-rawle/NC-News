@@ -21,9 +21,9 @@
 ## UX
 
 - [x] Basic styling added
-- [?] Responsive design - ish. There is overlap between date/topic on the homepage in mobile view. Article page unreadable in mobile view
+- [x] Responsive design - ish. There is overlap between date/topic on the homepage in mobile view. Article page unreadable in mobile view
 - [x] Items aligned
-- [?] Content legible (not too wide, obstructed, etc) - not on mobile view
+- [x] Content legible (not too wide, obstructed, etc) - not on mobile view
 - [x] Refreshing doesn’t cause an issue on sub-pages - refreshing on any page takes me back to the login page. Recommend storing the login details in local storage! This is especially annoying when trying to manually change pages through the URL.
 - [x] No errors in the console - on the articles page I am getting ‘articles mounted’/‘articles updated’
 - [x] Login / Votes / Posts / Deletions happen instantly _OR_ give user indication of loading
@@ -45,7 +45,8 @@
 - [x] Deleted comments don’t re-appear on re-render/refresh
 - [x] Can post an article
 - [x] User page
-- [ ] Users page - No page for all users, and navigating to other user pages is tricky - I can’t click on their pages and there is no page with all users on. Add being able to see other users page when clicked on their article sidebar
+- [x] User page - to view other users profiles
+- [ ] Users page - No page for all users - DESIGNED THIS WAY
 
 ## Error Handling
 
@@ -64,7 +65,7 @@
 - [ x ] Functions are DRY (`handleChange` for controlled components / api calls)
 - [ ] Uses object destructuring where possible - see notes
 - [ ] prop-types - no use of prop types for validation
-- [ ] No `console.log`s / comments - see notes
+- [x] No `console.log`s / comments - see notes
 - [x ] If untidy recommend ESLint & Prettier - tidy, but might be worth bringing in eslint/prettier to help other developers in future!
 
 Notes
