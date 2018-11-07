@@ -75,6 +75,7 @@ input:focus::placeholder, textarea:focus::placeholder {
    padding: 0 25px 0 10px;
    text-transform: capitalize;
    -webkit-appearance: none;
+   -moz-appearance: none;
    appearance: none;
    cursor: pointer;
 }
