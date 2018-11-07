@@ -69,8 +69,8 @@ class Nav extends Component {
             <div className="overlay-menu">
               <ul>
                 <li>
-                  <Link onClick={this.toggleClass} to={`/users/${this.props.username}`}>
-                    <div>{`Profile: ${this.props.username}`}</div>
+                  <Link onClick={this.toggleClass} to={`/users/${this.props.user.username}`}>
+                    <div>{`Profile: ${this.props.user.username}`}</div>
                   </Link>
                 </li>
                 <li>
