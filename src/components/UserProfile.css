@@ -66,6 +66,10 @@ aside button {
   margin:0;
   color:#21b8ef;
 }
+.user-profile h3.article-name a, .user-profile h3.comment-article-name a {
+  text-decoration: none;
+  color:inherit;
+} 
 .user-profile .comment-text {
     width: 70%;
 }

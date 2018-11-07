@@ -44,6 +44,12 @@ input:focus::placeholder, textarea:focus::placeholder {
     position: relative;
     vertical-align: middle
 }
+.post-article-box i {
+    padding:0 10px;
+    font-size:20px;
+    vertical-align: top;
+    padding-top: 3px;
+}
 .post-article-box .select-container:before {
     content:'Topic';
     color:white;

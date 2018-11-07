@@ -6,6 +6,7 @@
 }
 .individual-article aside a{
     color: inherit;
+    text-decoration: none;
 }
 .individual-article .see-profile {
     margin-top:60px;

@@ -16,10 +16,7 @@ class PostArticle extends Component {
         <Row>
           <Col xs={12} sm={8} md={6} xsOffset={0} smOffset={2} mdOffset={3}>
             <div className="post-article-box">
-              <h3>
-                Write an article...{' '}
-                <i className="fa fa-pencil" aria-hidden="true" />
-              </h3>
+              <h3>Write an article<i className="fa fa-pencil" aria-hidden="true" /></h3>
               <form onSubmit={this.handleSubmit}>
                 <ProfilePic user={this.props.user} />
                 <input

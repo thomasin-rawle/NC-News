@@ -30,7 +30,7 @@
 
 ## Functionality
 
-- [?] Some way to log in (should be very obvious to hiring partners) - perhaps not obvious you don’t need a password! Perhaps autofill this? Or remove the password box entirely.
+- [x] Some way to log in (should be very obvious to hiring partners) - perhaps not obvious you don’t need a password! Perhaps autofill this? Or remove the password box entirely.
 - [x] Some indication of who is logged in
 - [x] A way to log out
 - [x] Serves all articles / top articles
@@ -50,8 +50,8 @@
 
 ## Error Handling
 
-- [x ] Error pages
-- [ ?] All errors handled - not working for invalid topic slug. No error for invalid username.
+- [x] Error pages
+- [x] All errors handled - not working for invalid topic slug. No error for invalid username.
  - Navigation: (Bad url / Bad topic slug in url / Bad article id in url / Bad username in url)
  - Login: (Bad username / No username)
  - Post comment: (No text in comment body / Can you post without logging in?)
