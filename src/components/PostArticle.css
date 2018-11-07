@@ -76,6 +76,21 @@ input:focus::placeholder, textarea:focus::placeholder {
     vertical-align: middle;
     cursor: pointer;
 }
+.post-error {
+    position: absolute;
+    background-color:#ed704e;
+    color: white;
+    padding: 5px 20px;
+    font-weight: 700;
+    top: 10px;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+}
+.post-error i {
+    padding-right: 5px;
+}
 
 @media (max-width: 575px) {
 
@@ -91,5 +106,9 @@ input:focus::placeholder, textarea:focus::placeholder {
     }
     .post-article-box textarea {
        min-height: 80px;
+    }
+    .post-error {
+       padding: 5px 5px;
+       width: 320px;
     }
 }

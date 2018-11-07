@@ -7,7 +7,8 @@ class PostArticle extends Component {
   state = {
     title: '',
     body: '',
-    topic: ''
+    topic: '',
+    errMsg: ''
   };
   render() {
     return (
@@ -62,6 +63,7 @@ class PostArticle extends Component {
                     )}
                   </div>
                   <button>Post Article</button>
+                 {this.state.errMsg && <div className={'post-error'}><i className="fa fa-exclamation-circle" aria-hidden="true"></i> {this.state.errMsg}</div>}
                 </div>
               </form>
             </div>
@@ -73,15 +75,29 @@ class PostArticle extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { title, body, topic } = this.state;
-    if (title.length > 0 && body.length > 0 && topic !== 'default') {
+    if (title.length && body.length && topic.length && topic !== 'default') {
       this.props.postArticle({ title, body }, topic);
       this.setState({
         title: '',
         body: '',
-        topic: ''
+        topic: '',
+        errMsg: ''
       });
     } else {
-      console.log('ERROR, complete all fields');
+      if (!title.length) {
+        this.setState({
+          errMsg: 'Please enter a title for this post'
+        });
+      }
+      else if (!body.length) {
+        this.setState({
+          errMsg: 'Please enter some content for this post'
+        });
+      } else {
+        this.setState({
+          errMsg: 'Please select a topic for this post'
+        });
+      }
     }
   };
   handleChange = e => {

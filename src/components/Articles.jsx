@@ -130,7 +130,10 @@ class Articles extends Component {
       this.setState({
         articles: [postedArticle, ...this.state.articles]
       });
-    });
+    })
+    .catch(err => {
+      console.log(err.response.data.msg)
+    })
   };
 }
 

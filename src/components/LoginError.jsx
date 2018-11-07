@@ -8,7 +8,7 @@ const LoginError = (props) => {
         <div className="error-username">
             <div>
             
-            <p><i class="fa fa-exclamation-circle" aria-hidden="true"></i>{props.location.state.errMsg}</p>
+            <p><i className="fa fa-exclamation-circle" aria-hidden="true"></i>{props.location.state.errMsg}</p>
             </div>
            
         </div>
