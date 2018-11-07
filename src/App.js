@@ -8,7 +8,7 @@ import Login from './components/Login';
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound'
 import * as api from './api'
-import LoginError from './components/LoginError';
+
 
 class App extends Component {
 
@@ -22,8 +22,7 @@ class App extends Component {
     const currentUser = this.state.user
     return (
     <div>
-     <Router>
-      <Login path='/' user={currentUser} fetchUser={this.fetchUser}>
+      <Login  user={currentUser} fetchUser={this.fetchUser}>
       <Nav topics={this.state.topics} user={currentUser} />
         <Router>
           <Articles topics={this.state.topics} path='/' user={currentUser}/>
@@ -34,14 +33,11 @@ class App extends Component {
           <NotFound path='/error'/>
         </Router>
        </Login>
-       <LoginError path='/login/error'/>
-       </Router>
+       
      </div>
     );
   }
-  componentDidMount() {
-    console.log('mounted')
-   
+  componentDidMount() {   
     this.fetchTopics();
     const user = sessionStorage.getItem('user')
     if (sessionStorage.user) {
@@ -62,7 +58,16 @@ class App extends Component {
         topics: newTopics
       });
     })
-   
+    .catch(err => {
+      console.log(err.response)
+      navigate('/error', {
+        replace: true,
+         state: {
+          errCode: err.response.status,
+          errMsg: err.response.data.msg
+        }
+      });
+    });
   };
   
   fetchUser = (username) => {
@@ -74,6 +79,7 @@ class App extends Component {
     })
     .catch(err => {
       navigate('/login/error', {
+        replace: true,
          state: {
           errCode: err.response.status,
           errMsg: err.response.data.msg

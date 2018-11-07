@@ -14,6 +14,7 @@ export const getTopics = () => {
     return (
         axios.get(url)
         .then(({data}) => data.allTopics)
+        .catch(console.log)
     )
 }
 export const getArticle = (id) => {

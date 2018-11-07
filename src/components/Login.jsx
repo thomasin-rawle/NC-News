@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './Login.css'
+import { Router, navigate} from '@reach/router';
+import './Login.css';
+import LoginError from './LoginError';
 
 class Login extends Component {
     state = {
@@ -18,8 +20,12 @@ class Login extends Component {
                         <input readOnly id='password' type='text' value={'********'} placeholder='Password'/>
                         <button>Login</button>
                     </form>
+                    <Router>
+                        <LoginError path='/login/error'/>
+                     </Router>
                 </div>
                 <svg viewBox="0 0 1614 189.7" preserveAspectRatio="none" className="curve" role="presentation" aria-hidden="true"><path d="M0,12c0,0,181.5,270.5,653,144c835-224,961-14,961-14V0H0V12z"></path></svg>
+            
             </div>
         );
     }
@@ -27,7 +33,8 @@ class Login extends Component {
         const {fetchUser} = this.props;
         const {username} = this.state
         e.preventDefault();
-        return fetchUser(username)
+        fetchUser(username);
+        navigate('/');
     }
     handleChange = e => {
         const {value} = e.target;

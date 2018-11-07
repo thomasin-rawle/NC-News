@@ -1,13 +1,16 @@
 import React from 'react';
-
+import './LoginError.css'
 
 const LoginError = (props) => {
+    console.log(props)
     return (
-        <div className="error">
+       
+        <div className="error-username">
             <div>
-            <h2>Status: {props.location.state.errCode}</h2>
-            <h2>Message: {props.location.state.errMsg}</h2>
+            
+            <p><i class="fa fa-exclamation-circle" aria-hidden="true"></i>{props.location.state.errMsg}</p>
             </div>
+           
         </div>
     );
 };

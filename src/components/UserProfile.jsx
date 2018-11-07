@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { navigate } from '@reach/router';
 import Back from './Back';
 import ProfilePic from './ProfilePic';
 import * as api from '../api';
@@ -113,6 +114,15 @@ class UserProfile extends Component {
       this.setState({
         userInfo,
         loading: false
+      });
+    })
+    .catch(err => {
+      navigate('/error', {
+        replace: true,
+         state: {
+          errCode: err.response.status,
+          errMsg: err.response.data.msg
+        }
       });
     });
   };
