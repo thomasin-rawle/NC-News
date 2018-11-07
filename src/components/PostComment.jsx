@@ -8,14 +8,16 @@ class PostComment extends Component {
         errMsg: ''
     }
     render() {
+        const {user} = this.props
+        const {errMsg, body} = this.state
         return (
             <div className="post-comment-box">
-            {this.state.errMsg && <div className='post-error'><i className="fa fa-exclamation-circle" aria-hidden="true"></i>{this.state.errMsg}</div>}
+            {errMsg && <div className='post-error'><i className="fa fa-exclamation-circle" aria-hidden="true"></i>{errMsg}</div>}
                 <form onSubmit={this.handleSubmit}>
-                    <ProfilePic user={this.props.user}/>
-                    <textarea onChange={this.handleChange} value={this.state.body} id='body' placeholder='Add a comment...' name='body'/>
+                    <ProfilePic user={user}/>
+                    <textarea onChange={this.handleChange} value={body} id='body' placeholder='Add a comment...' name='body'/>
                     <div className="button-container">
-                        <p className="postingAs">Commenting as <strong>{this.props.user.username}</strong></p>
+                        <p className="postingAs">Commenting as <strong>{user.username}</strong></p>
                         <button>Comment</button>
                     </div>
                 </form>
@@ -25,8 +27,9 @@ class PostComment extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const {body} = this.state;
+        const {postComment} = this.props;
         if (body.length) {
-            this.props.postComment(body)
+            postComment(body)
             this.setState({
                 body: '',
                 errMsg: ''

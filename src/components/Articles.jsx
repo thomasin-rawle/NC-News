@@ -11,12 +11,12 @@ import { Row, Col, Grid } from 'react-bootstrap';
 class Articles extends Component {
   state = {
     articles: [],
-    loading: true,
-    error: ''
+    loading: true
   };
   render() {
-    const selectedTopic = this.props.topic_slug;
-    if (this.state.loading)
+    const {topic_slug, topics, user} = this.props
+    const {articles, loading} = this.state
+    if (loading)
       return (
         <div className="loading">
           <i className="fa fa-spinner fa-pulse" aria-hidden="true" />
@@ -25,16 +25,16 @@ class Articles extends Component {
     return (
       <div className="articles">
         <h1 className="topic-title">
-          {selectedTopic && `${selectedTopic} Articles`}
+          {topic_slug && `${topic_slug} Articles`}
         </h1>
         <PostArticle
-          topics={this.props.topics}
-          topic={this.props.topic_slug}
+          topics={topics}
+          topic={topic_slug}
           postArticle={this.postArticle}
-          user={this.props.user}
+          user={user}
         />
         <Grid>
-          {this.state.articles.map(article => {
+          {articles.map(article => {
             return (
               <Row key={article._id}>
                 <Col xs={12} md={8} xsOffset={0} mdOffset={2}>
@@ -96,14 +96,15 @@ class Articles extends Component {
     this.fetchArticles();
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.topic_slug !== this.props.topic_slug) {
+    const {topic_slug} = this.props;
+    if (prevProps.topic_slug !== topic_slug) {
       this.fetchArticles();
     }
   }
   fetchArticles = () => {
-    const selectedTopic = this.props.topic_slug;
+    const {topic_slug} = this.props;
     api
-      .getArticles(selectedTopic)
+      .getArticles(topic_slug)
       .then(newArticles => {
         newArticles.sort(function(a, b) {
           return new Date(b.created_at) - new Date(a.created_at);
@@ -124,15 +125,13 @@ class Articles extends Component {
       });
   };
   postArticle = (article, topic) => {
-    const newArticle = { ...article, created_by: this.props.user._id };
-    const selectedTopic = topic.length > 0 ? topic : this.props.topic_slug;
-    api.postArticle(newArticle, selectedTopic).then(postedArticle => {
+    const {articles} = this.state
+    const {user} = this.props
+    const newArticle = { ...article, created_by: user._id };
+    api.postArticle(newArticle, topic).then(postedArticle => {
       this.setState({
-        articles: [postedArticle, ...this.state.articles]
+        articles: [postedArticle, ...articles]
       });
-    })
-    .catch(err => {
-      console.log(err.response.data.msg)
     })
   };
 }

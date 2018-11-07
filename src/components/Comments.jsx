@@ -11,10 +11,12 @@ class Comments extends Component {
     comments: []
   };
   render() {
+    const {user} = this.props
+    const {comments} = this.state
     return (
       <div>
-        <PostComment user={this.props.user} postComment={this.postComment} />
-        {this.state.comments.map(comment => {
+        <PostComment user={user} postComment={this.postComment} />
+        {comments.map(comment => {
           return (
             <div key={comment._id} className="comment">
             <Link to={`/users/${comment.created_by.username}`}>
@@ -30,7 +32,7 @@ class Comments extends Component {
                   target_id={comment._id}
                   type={'comment'}
                 />
-                {comment.created_by._id === this.props.user._id && (
+                {comment.created_by._id === user._id && (
                   <button
                     className="delete-comment"
                     onClick={() => {
@@ -48,7 +50,8 @@ class Comments extends Component {
     );
   }
   componentDidMount() {
-    this.fetchComments(this.props.article_id);
+    const {article_id} = this.props
+    this.fetchComments(article_id);
   }
   fetchComments = id => {
     api.getComments(id).then(newComments => {
@@ -61,20 +64,22 @@ class Comments extends Component {
     });
   };
   postComment = (comment) => {
-    const newComment = {body: comment, created_by: this.props.user._id}
-    const article_id = this.props.article_id
+    const {comments} = this.state
+    const {user, article_id} = this.props
+    const newComment = {body: comment, created_by: user._id}
     api.postComment(newComment, article_id)
     .then(postedComment => {
       this.setState({
-        comments: [postedComment, ...this.state.comments]
+        comments: [postedComment, ...comments]
       });
     })
   }
   deleteComment = id => {
+    const {comments} = this.state
     const result = window.confirm('Are you sure you want to delete this comment?')
     if (result) {
       api.deleteComment(id).then(() => {
-        const newComments = this.state.comments.filter(comment => comment._id !== id)        
+        const newComments = comments.filter(comment => comment._id !== id)        
         this.setState({
           comments: newComments
         });

@@ -1,16 +1,16 @@
 import React from 'react';
 import './NotFound.css'
 
-const NotFound = (props) => {
+const NotFound = ({path, location}) => {
     return (
         <div className="error-container">
             <div className="error">
-                {(props.path && 
+                {(path && 
                 <div>
                 <h1>Oops!</h1>
                 <h3>It seems you took a wrong turn.</h3>
-                <h1 className="code">{props.location.state.errCode}</h1>
-                <p className="message">{props.location.state.errMsg}</p>
+                <h1 className="code">{location.state.errCode}</h1>
+                <p className="message">{location.state.errMsg}</p>
                 </div>) 
                 || 
                 <div>

@@ -11,6 +11,8 @@ class PostArticle extends Component {
     errMsg: ''
   };
   render() {
+    const {title, body, errMsg} = this.state
+    const {user, topic, topics} = this.props
     return (
       <Grid>
         <Row>
@@ -18,10 +20,10 @@ class PostArticle extends Component {
             <div className="post-article-box">
               <h3>Write an article<i className="fa fa-pencil" aria-hidden="true" /></h3>
               <form onSubmit={this.handleSubmit}>
-                <ProfilePic user={this.props.user} />
+                <ProfilePic user={user} />
                 <input
                   onChange={this.handleChange}
-                  value={this.state.title}
+                  value={title}
                   id="title"
                   type="text"
                   placeholder="Post Title"
@@ -29,17 +31,17 @@ class PostArticle extends Component {
                 />
                 <textarea
                   onChange={this.handleChange}
-                  value={this.state.body}
+                  value={body}
                   id="body"
                   placeholder="Write something..."
                   name="body"
                 />
                 <div className="form-components">
                   <div className="select-container">
-                    {(this.props.topic && (
+                    {(topic && (
                       <select disabled id="topic" value={this.state.topic}>
-                        <option value={this.props.topic}>
-                          {this.props.topic}
+                        <option value={topic}>
+                          {topic}
                         </option>
                       </select>
                     )) || (
@@ -49,7 +51,7 @@ class PostArticle extends Component {
                         value={this.state.topic}
                       >
                         <option value="default">Choose One </option>
-                        {this.props.topics.map(topic => {
+                        {topics.map(topic => {
                           return (
                             <option key={topic._id} value={topic.slug}>
                               {topic.title}
@@ -60,7 +62,7 @@ class PostArticle extends Component {
                     )}
                   </div>
                   <button>Post Article</button>
-                 {this.state.errMsg && <div className='post-error'><i className="fa fa-exclamation-circle" aria-hidden="true"></i> {this.state.errMsg}</div>}
+                 {errMsg && <div className='post-error'><i className="fa fa-exclamation-circle" aria-hidden="true"></i> {errMsg}</div>}
                 </div>
               </form>
             </div>
@@ -71,9 +73,12 @@ class PostArticle extends Component {
   }
   handleSubmit = e => {
     e.preventDefault();
-    const { title, body, topic } = this.state;
-    if (title.length && body.length && topic.length && topic !== 'default') {
-      this.props.postArticle({ title, body }, topic);
+    const {postArticle, topic} = this.props
+    const {title, body} = this.state;
+    const selectedTopic = topic ? topic : this.state.topic
+
+    if (title.length && body.length && selectedTopic && selectedTopic !== 'default') {
+      postArticle({ title, body }, selectedTopic);
       this.setState({
         title: '',
         body: '',

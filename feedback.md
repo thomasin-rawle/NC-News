@@ -58,15 +58,15 @@
  - Post article: (No text in article body / No title / No topic selected / Can you post without logging in?)
 
 ## Code
-- [x ] Well named components
-- [ x] Functional components used where possible
-- [ x] `node_modules` git ignored
-- [ x] Components reused where possible (`Articles` / `Voter`...)
-- [ x ] Functions are DRY (`handleChange` for controlled components / api calls)
+- [x] Well named components
+- [x] Functional components used where possible
+- [x] `node_modules` git ignored
+- [x] Components reused where possible (`Articles` / `Voter`...)
+- [x] Functions are DRY (`handleChange` for controlled components / api calls)
 - [ ] Uses object destructuring where possible - see notes
 - [ ] prop-types - no use of prop types for validation
 - [x] No `console.log`s / comments - see notes
-- [x ] If untidy recommend ESLint & Prettier - tidy, but might be worth bringing in eslint/prettier to help other developers in future!
+- [x] If untidy recommend ESLint & Prettier - tidy, but might be worth bringing in eslint/prettier to help other developers in future!
 
 Notes
 
