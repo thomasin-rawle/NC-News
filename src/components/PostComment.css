@@ -1,6 +1,7 @@
 .post-comment-box {
     border-top: solid 1px #ccc;
     padding:30px 20px 20px;
+    position: relative;
 }
 .post-comment-box textarea {
     display:inline-block;
@@ -47,6 +48,15 @@ textarea:focus::placeholder {
     margin-right: 10px;
     font-size:0.8em;
     
+}
+.post-comment-box .post-error {
+    padding:2px 10px;
+    bottom:25px;
+    left:90px;
+    transform: translate(0);
+    text-align: center;
+    top: unset;
+    width:unset;
 }
 @media(max-width:767px) {
     .post-comment-box .profile-pic {

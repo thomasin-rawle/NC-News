@@ -5,10 +5,12 @@ import './PostComment.css'
 class PostComment extends Component {
     state = {
         body: '',
+        errMsg: ''
     }
     render() {
         return (
             <div className="post-comment-box">
+            {this.state.errMsg && <div className='post-error'><i className="fa fa-exclamation-circle" aria-hidden="true"></i>{this.state.errMsg}</div>}
                 <form onSubmit={this.handleSubmit}>
                     <ProfilePic user={this.props.user}/>
                     <textarea onChange={this.handleChange} value={this.state.body} id='body' placeholder='Add a comment...' name='body'/>
@@ -23,20 +25,24 @@ class PostComment extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const {body} = this.state;
-        if (body.length > 0) {
+        if (body.length) {
             this.props.postComment(body)
             this.setState({
-                body: ''
+                body: '',
+                errMsg: ''
             })
         }
         else {
-            console.log('ERROR, complete all fields')
+            this.setState({
+                errMsg: 'Please enter a comment'
+            })
         }
     }
     handleChange = e => {
         const {id, value} = e.target;
         this.setState({
-            [id]:value
+            [id]:value,
+            errMsg: ''
         })
     }
 }

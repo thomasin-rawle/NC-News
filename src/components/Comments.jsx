@@ -68,7 +68,7 @@ class Comments extends Component {
       this.setState({
         comments: [postedComment, ...this.state.comments]
       });
-    });
+    })
   }
   deleteComment = id => {
     const result = window.confirm('Are you sure you want to delete this comment?')

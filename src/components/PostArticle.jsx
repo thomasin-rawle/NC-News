@@ -63,7 +63,7 @@ class PostArticle extends Component {
                     )}
                   </div>
                   <button>Post Article</button>
-                 {this.state.errMsg && <div className={'post-error'}><i className="fa fa-exclamation-circle" aria-hidden="true"></i> {this.state.errMsg}</div>}
+                 {this.state.errMsg && <div className='post-error'><i className="fa fa-exclamation-circle" aria-hidden="true"></i> {this.state.errMsg}</div>}
                 </div>
               </form>
             </div>
