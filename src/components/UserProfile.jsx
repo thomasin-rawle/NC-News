@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { navigate } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import Back from './Back';
 import ProfilePic from './ProfilePic';
 import * as api from '../api';
@@ -66,7 +66,9 @@ class UserProfile extends Component {
                 {userArticles.map(article => {
                   return (
                     <div className="article-container" key={article._id}>
+                    <Link to={`/article/${article._id}`}>
                       <h3 className="article-name">{article.title}</h3>
+                    </Link>
                       <p className="article-date">
                         {formatDate(article.created_at)}
                       </p>
@@ -80,9 +82,11 @@ class UserProfile extends Component {
                   return (
                     <div key={comment._id}>
                       <div className="comment-container">
+                      <Link to={`/article/${comment.belongs_to._id}`}>
                         <h3 className="comment-article-name">
-                          {comment.belongs_to.title}
+                        {comment.belongs_to.title}
                         </h3>
+                        </Link>
                         <p className="comment-date">
                           {formatDate(comment.created_at)}
                         </p>
