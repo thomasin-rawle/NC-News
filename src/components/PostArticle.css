@@ -58,14 +58,27 @@ input:focus::placeholder, textarea:focus::placeholder {
     top:6px;
     font-size:14px;
 }
+.post-article-box .select-container:after {
+    content:'\f0d7';
+    font-family: fontawesome;
+    position: absolute;
+    top:50%;
+    right:8px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
 .post-article-box select{
    background-color: transparent;
    height:30px;
    border: none;
    border-left:50px;
-   padding: 0 10px;
+   padding: 0 25px 0 10px;
    text-transform: capitalize;
+   -webkit-appearance: none;
+   appearance: none;
+   cursor: pointer;
 }
+
 .post-article-box select:disabled{
     -webkit-appearance: none;
     color: #ccc;
