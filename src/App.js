@@ -58,16 +58,6 @@ class App extends Component {
         topics: newTopics
       });
     })
-    .catch(err => {
-      console.log(err.response)
-      navigate('/error', {
-        replace: true,
-         state: {
-          errCode: err.response.status,
-          errMsg: err.response.data.msg
-        }
-      });
-    });
   };
   
   fetchUser = (username) => {

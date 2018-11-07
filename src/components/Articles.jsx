@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import * as api from '../api';
 import './Articles.css';
 import PostArticle from './PostArticle';
@@ -113,11 +113,15 @@ class Articles extends Component {
           loading: false
         });
       })
-      // .catch(error => {
-      //   this.setState({
-      //     error
-      //   });
-      // });
+      .catch(err => {
+        navigate('/error', {
+          replace: true,
+           state: {
+            errCode: err.response.status,
+            errMsg: err.response.data.msg
+          }
+        });
+      });
   };
   postArticle = (article, topic) => {
     const newArticle = { ...article, created_by: this.props.user._id };

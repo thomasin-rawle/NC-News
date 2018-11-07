@@ -13,7 +13,7 @@ const NotFound = (props) => {
                 <p className="message">{props.location.state.errMsg}</p>
                 </div>) 
                 || <h1>Page Not Found!</h1>}
-                <button onClick={() => {window.history.back()}}><i class="fa fa-chevron-left" aria-hidden="true"></i>Head Back</button>
+                <button onClick={() => {window.history.back()}}><i className="fa fa-chevron-left" aria-hidden="true"></i>Head Back</button>
             </div>
         </div>
     );
