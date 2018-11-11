@@ -8,17 +8,21 @@ class Like extends Component {
         voteChange: 0
     }
     render() {
-        const totalLikes = this.props.likeCount + this.state.voteChange
+        const {likeCount} = this.props
+        const {isliked, voteChange} = this.state
+        const totalLikes = likeCount + voteChange
         return (
             <div className="likeDiv">
-               <div className={this.state.isliked? 'heart is_animating' : 'heart'} onClick={this.handleClick}></div>
+               <div className={isliked? 'heart is_animating' : 'heart'} onClick={this.handleClick}></div>
                {`${totalLikes} ${(totalLikes === 1 && `Like`) || `Likes`}`}
                     
             </div>
         );
     }
     handleClick = () => {
-        const voteChange = (!this.state.isliked) ? 1 : 0;
+        const {isliked} = this.state
+        const {target_id, type} = this.props
+        const voteChange = (!isliked) ? 1 : 0;
         const direction = voteChange === 1 ? 'up' : 'down'
         this.setState(prevState => {
            return {
@@ -26,7 +30,7 @@ class Like extends Component {
                voteChange
             }
         })
-        api.updateLikeCount(this.props.target_id, direction, this.props.type)
+        api.updateLikeCount(target_id, direction, type)
     }
 }
 

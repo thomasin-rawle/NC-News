@@ -1,21 +1,20 @@
 
 .nav {
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 15px 0;
     background-color: #303338;
     text-align: right;
     background-image: url('/nc_logo.png');
     background-repeat: no-repeat;
     background-size: 100px;
     background-position: 50px center;
-    margin-left:-15px;
-    margin-right:-15px;
   }
   .nav ul {
     padding-right: 20px;
     display: inline-block;
     margin: 0;
-    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
 
   }
   .nav ul button {
@@ -42,7 +41,6 @@
   /* -------- NAV STYLING --------- */
   
   .dropdown {
-    overflow: hidden;
     display: inline-block;
   }
   
@@ -53,7 +51,6 @@
   }
   
   .nav ul .dropdown-content {
-    
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -98,6 +95,129 @@
     float: left;
     margin-left: 30px;
     color: white;
-    margin-top: 5px;
     font-size: 30px;
+  }
+
+  /* MOBILE NAV */
+  .mobile-nav{
+    display:none
+  }
+  .mobile-nav .button_container {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 30px;
+    height:32px;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity .25s ease;
+    opacity:0.7
+  }
+  .mobile-nav .button_container:hover {
+    opacity: 1;
+  }
+  .mobile-nav .button_container.active {
+    z-index: 11;
+  }
+  .mobile-nav .button_container.active .top {
+    transform: translateY(9px) translateX(0) rotate(45deg);
+    background: #FFF;
+  }
+  .mobile-nav .button_container.active .middle {
+    opacity: 0;
+    background: #FFF;
+  }
+  .mobile-nav .button_container.active .bottom {
+    transform: translateY(-9px) translateX(0) rotate(-45deg);
+    background: #FFF;
+  }
+  .mobile-nav .button_container span {
+    background: #fff;
+    border: none;
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .35s ease;
+    cursor: pointer;
+  }
+  .mobile-nav .button_container span:nth-of-type(2) {
+    top: 9px;
+  }
+  .mobile-nav .button_container span:nth-of-type(3) {
+    top: 18px;
+  }
+  .mobile-nav .overlay {
+    position: fixed;
+    background: #21b8ef;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
+    overflow: hidden;
+    z-index: 10;
+  }
+  .mobile-nav .overlay.open {
+    opacity: .9;
+    visibility: visible;
+    height: 100%;
+  }
+  .mobile-nav .overlay.open li {
+    animation: fadeInRight .5s ease forwards;
+    animation-delay: .35s;
+  }
+  .mobile-nav .overlay.open li:nth-of-type(2) {
+    animation-delay: .4s;
+  }
+  .mobile-nav .overlay.open li:nth-of-type(3) {
+    animation-delay: .45s;
+  }
+  .mobile-nav .overlay.open li:nth-of-type(4) {
+    animation-delay: .50s;
+  }
+  .mobile-nav .overlay-menu{
+    position: relative;
+    height: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 400;
+    text-align: center;
+  }
+  .mobile-nav .overlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%;
+  }
+  .mobile-nav .overlay ul li {
+    display: block;
+    height: 25%;
+    height: calc(100% / 5);
+    min-height: 50px;
+    position: relative;
+    
+  }
+  .mobile-nav .overlay ul li a {
+    display: block;
+    position: relative;
+    color: #FFF;
+    text-decoration: none;
+    overflow: hidden;
+    font-family: 'Cabin Sketch', cursive;
+    font-size:40px;
+  }
+
+  @media (max-width:767px) {
+    nav.mobile-nav{
+      display:block
+    }
+    nav.desktop-nav {
+      display:none
+    }
   }

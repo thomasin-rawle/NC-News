@@ -7,20 +7,22 @@
     background-color: #ececec;
     border-radius: 10px;
     margin-bottom: 20px;
+    width:100%;
+    text-align: center
 }
 .post-article-box input, .post-article-box textarea {
     display: block;
     margin-left: 90px;
-    width:300px;
     padding: 6px 10px;
     border-radius:5px;
     border: 1px #ccc solid;
     font-size:12px;
     color:#474747;
     margin-bottom: 10px;
+    width: calc(98% - 80px);
 }
 .post-article-box textarea {
-    min-height: 50px;
+    min-height: 80px;
 }
 input::placeholder, textarea::placeholder {
     color:#ccc;
@@ -42,6 +44,12 @@ input:focus::placeholder, textarea:focus::placeholder {
     position: relative;
     vertical-align: middle
 }
+.post-article-box i {
+    padding:0 10px;
+    font-size:20px;
+    vertical-align: top;
+    padding-top: 3px;
+}
 .post-article-box .select-container:before {
     content:'Topic';
     color:white;
@@ -50,26 +58,77 @@ input:focus::placeholder, textarea:focus::placeholder {
     top:6px;
     font-size:14px;
 }
+.post-article-box .select-container:after {
+    content:'\f0d7';
+    font-family: fontawesome;
+    position: absolute;
+    top:50%;
+    right:8px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
 .post-article-box select{
    background-color: transparent;
    height:30px;
    border: none;
    border-left:50px;
-   padding: 0 10px;
+   padding: 0 25px 0 10px;
    text-transform: capitalize;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   cursor: pointer;
 }
+
 .post-article-box select:disabled{
     -webkit-appearance: none;
+    color: #ccc;
 }
 .post-article-box button {
     background-color: #21b8ef;
     color:white;
     border:none;
-    padding: 7px 15px;
+    padding: 5px 15px;
     border-radius:8px;
     font:unset;
     font-size:14px;
     margin-left:10px;
     vertical-align: middle;
     cursor: pointer;
+}
+.post-error {
+    position: absolute;
+    background-color:#ed704e;
+    color: white;
+    padding: 5px 20px;
+    font-weight: 700;
+    top: 10px;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+}
+.post-error i {
+    padding-right: 5px;
+}
+
+@media (max-width: 575px) {
+
+    .post-article-box .profile-pic {
+        display:none;
+    }
+    .form-components {
+        float:unset;
+    }
+    .post-article-box input, .post-article-box textarea {
+        width:100%;
+        margin-left:0;
+    }
+    .post-article-box textarea {
+       min-height: 80px;
+    }
+    .post-error {
+       padding: 5px 5px;
+       width: 320px;
+    }
 }

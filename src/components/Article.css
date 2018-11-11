@@ -1,43 +1,33 @@
-.individual-article {
-    display:grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas:
-    'main main sidebar '
-    'main main .';
-}
-.individual-article .article {
-    display:block;
-    margin: 10px;
-    width:unset;
-}
-.individual-article .sidebar {
+.individual-article article, .individual-article aside {
     background-color:#ececec;
     border-radius: 10px;
     padding: 20px;
-    margin: 10px;
-    grid-area: sidebar;
-    min-width:200px;
+    margin-bottom: 20px;
 }
-.primary-color {
-    color:#21b8ef;
+.individual-article aside a{
+    color: inherit;
+    text-decoration: none;
 }
-.individual-article .article {
-    grid-area: main
+.individual-article .see-profile {
+    margin-top:60px;
 }
-.individual-article .sidebar .profile-pic {
+.individual-article .see-profile a:hover {
+    text-decoration: none;
+}
+.individual-article aside .profile-pic {
     margin-right:20px;
 } 
-.individual-article .sidebar p{
-    margin: 0 0 10px 0;
-}
-.individual-article .article .body {
-    max-height: unset;
+.individual-article aside .profile > p {
+    margin: 10px 0;
+} 
+.primary-color {
+    color:#21b8ef;
 }
 .individual-article .topic {
     position: unset
 }
 .individual-article .article-info {
-    padding:10px 0
+    padding: 0 0 10px;
 }
 button.back {
     border:none;
@@ -49,11 +39,9 @@ button.back {
     margin:20px 10px;
     cursor:pointer;
 }
-.individual-article .profile {
-    margin-bottom: 80px;
-}
+
 button.viewProfile {
-    border: none;
+  border: none;
   padding: 10px 15px;
   border-radius: 10px;
   background-color: #21b8ef;
@@ -62,4 +50,26 @@ button.viewProfile {
   cursor: pointer;
   display: block;
   margin: 10px auto;
+}
+
+@media(max-width:991px) {
+    .individual-article aside {
+        display: flex;
+         justify-content: space-between;
+         align-items: center;
+}
+    .individual-article aside .see-profile {
+        margin-top:0;
+    }
+    .individual-article aside .profile .profile__info {
+        display: inline-block;
+        max-width:110px;
+    }
+}
+@media(max-width:400px) {
+
+    .individual-article aside .see-profile {
+        display:none
+    }
+    
 }

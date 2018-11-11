@@ -4,7 +4,6 @@ h1.topic-title {
     text-align: center;
 }
 .article {
-    width:600px;
     background-color: #ececec;
     margin: 10px auto;
     border-radius: 10px;
@@ -15,16 +14,12 @@ h1.topic-title {
     width: 35px;
     height:35px;
     border-radius:100%;
-    float:unset;
+    float:left;
     margin-right:10px;
 }
 .articles a {
     text-decoration: none;
     color:inherit;
-}
-.article .body {
-    max-height: 100px;
-    overflow: hidden;
 }
 .article-info {
     border-bottom: 1px solid #21b8ef;
@@ -93,10 +88,45 @@ h1.topic-title {
 .art-interactions > * {
     padding-right:20px;
 }
+.see-more {
+    text-align: center;
+    margin-top:10px;
+}
+.see-more button {
+    background-color: #21b8ef;
+    color:white;
+    padding: 5px 10px;
+    border:none;
+    border-radius: 8px;
+    font:unset;
+    font-size:14px;
+    
+}
+.ellipsis {
+    margin-left:10px;
+    vertical-align: sub;
+    color: #21b8ef;
+    font-size:1.1em;
+}
 
 /* Media Queries */
 @media (max-width:767px) {
     .article {
         width:100%;
     }
+    .article-info {
+        display:block;
+    }
+    .article-info > * {
+        vertical-align: middle;
+    }
+    .article .topic {
+        position: relative;
+       display:block;
+       right:unset;
+    }
+    .article .name {
+        padding-left:0;
+    }
 }
+
