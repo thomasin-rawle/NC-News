@@ -2,7 +2,7 @@
 
 Northcoders News is a news feed app in the style of Reddit, twitter etc. This repo contains the front-end of the app which has been made using React. 
 
-[Click this link to view my live version of Northcoders News](https://5bdc48344ed62f4746edefa9--tommy-s-nc-news.netlify.com)
+[Click this link to view my live version of Northcoders News](https://tommy-s-nc-news.netlify.com/)
 
 It builds on the back-end API that I created previously. This API is hosted on Heroku and was set up using Express.js and a mongoDB database.
 
